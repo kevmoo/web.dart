@@ -1,0 +1,10 @@
+package docs:adder@0.1.0;
+
+interface add {
+    add: func(x: u64, y: u64) -> u64;
+}
+
+world adder {
+    export add;
+}
+

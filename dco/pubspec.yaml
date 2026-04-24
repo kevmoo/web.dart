@@ -1,0 +1,23 @@
+name: dco
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.10.0
+
+executables:
+  generate_bindings: generate_bindings
+
+dependencies:
+
+  code_builder: ^4.10.0
+  path: ^1.8.0
+  web:
+    path: ../web
+
+
+dev_dependencies:
+  dart_flutter_team_lints: ^3.0.0
+
+
+
+

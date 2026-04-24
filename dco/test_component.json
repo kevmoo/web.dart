@@ -1,0 +1,57 @@
+{
+  "worlds": [
+    {
+      "name": "root",
+      "imports": {},
+      "exports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        }
+      },
+      "package": 1
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "add",
+      "types": {},
+      "functions": {
+        "add": {
+          "name": "add",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "x",
+              "type": "u64"
+            },
+            {
+              "name": "y",
+              "type": "u64"
+            }
+          ],
+          "result": "u64"
+        }
+      },
+      "package": 0
+    }
+  ],
+  "types": [],
+  "packages": [
+    {
+      "name": "docs:adder@0.1.0",
+      "interfaces": {
+        "add": 0
+      },
+      "worlds": {}
+    },
+    {
+      "name": "root:component",
+      "interfaces": {},
+      "worlds": {
+        "root": 0
+      }
+    }
+  ]
+}

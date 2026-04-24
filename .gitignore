@@ -5,6 +5,9 @@ pubspec.lock
 js_interop_gen/lib/src/*.js
 js_interop_gen/lib/src/*.js.*
 js_interop_gen/lib/src/node_modules/
+
 web_generator/node_modules
+
 .compile.lock
 .last_npm_install
+_wasm_rust_example/target
