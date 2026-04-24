@@ -6,3 +6,19 @@ analyzer:
     strict-inference: true
     strict-raw-types: true
 
+linter:
+  rules:
+  - avoid_bool_literals_in_conditional_expressions
+  - avoid_private_typedef_functions
+  - avoid_redundant_argument_values
+  - avoid_returning_this
+  - avoid_unused_constructor_parameters
+  - cancel_subscriptions
+  - join_return_with_assignment
+  - literal_only_boolean_expressions
+  - no_adjacent_strings_in_list
+  - no_runtimeType_toString
+  - prefer_const_declarations
+  - prefer_final_locals
+  - unnecessary_await_in_return
+  - use_string_buffers
