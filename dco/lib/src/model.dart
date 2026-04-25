@@ -82,7 +82,7 @@ class WasmComponentInterface {
 class WasmFunction {
   final String name;
   final List<WasmParam> params;
-  final Object? result;
+  final WitType? result;
 
   WasmFunction({
     required this.name,
@@ -96,7 +96,9 @@ class WasmFunction {
     final params = paramsList
         .map((p) => WasmParam.fromJson(p as Map<String, dynamic>))
         .toList();
-    final result = json['result'] as Object?;
+    final result = json['result'] != null
+        ? WitType(json['result'] as Object)
+        : null;
 
     return WasmFunction(name: name, params: params, result: result);
   }
@@ -104,16 +106,14 @@ class WasmFunction {
 
 class WasmParam {
   final String name;
-  final Object type;
+  final WitType type;
 
   WasmParam({required this.name, required this.type});
 
-  factory WasmParam.fromJson(Map<String, dynamic> json) {
-    return WasmParam(
-      name: json['name'] as String,
-      type: json['type'] as Object,
-    );
-  }
+  factory WasmParam.fromJson(Map<String, dynamic> json) => WasmParam(
+    name: json['name'] as String,
+    type: WitType(json['type'] as Object),
+  );
 }
 
 class WasmWorld {
@@ -122,10 +122,29 @@ class WasmWorld {
 
   WasmWorld({required this.name, required this.exports});
 
-  factory WasmWorld.fromJson(Map<String, dynamic> json) {
-    return WasmWorld(
-      name: json['name'] as String,
-      exports: json['exports'] as Map<String, dynamic>,
-    );
+  factory WasmWorld.fromJson(Map<String, dynamic> json) => WasmWorld(
+    name: json['name'] as String,
+    exports: json['exports'] as Map<String, dynamic>,
+  );
+}
+
+// Sealed class for WIT types
+sealed class WitType {
+  WitType._();
+
+  factory WitType(Object value) {
+    if (value is String) return PrimitiveWitType(value);
+    if (value is int) return ReferenceWitType(value);
+    throw ArgumentError('Invalid WIT type: $value');
   }
+}
+
+class PrimitiveWitType extends WitType {
+  final String name;
+  PrimitiveWitType(this.name) : super._();
+}
+
+class ReferenceWitType extends WitType {
+  final int id;
+  ReferenceWitType(this.id) : super._();
 }

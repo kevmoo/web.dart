@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:code_builder/code_builder.dart' as code;
 import 'package:dart_style/dart_style.dart';
 import 'package:pub_semver/pub_semver.dart';
+import 'method_generator.dart';
 import 'model.dart';
 
 code.Library generateBindingsCore(
@@ -14,136 +15,10 @@ code.Library generateBindingsCore(
 
   final className = interfaceName[0].toUpperCase() + interfaceName.substring(1);
 
-  final methods = <code.Method>[];
-
-  for (final func in functions) {
-    final name = func.name;
-    final params = func.params;
-    final resultType = func.result;
-
-    final dartParams = <code.Parameter>[];
-    final callArgs = <code.Expression>[];
-
-    for (final p in params) {
-      final pName = p.name;
-      if (p.type == 'string') {
-        dartParams.add(
-          code.Parameter(
-            (b) => b
-              ..name = pName
-              ..type = code.refer('String'),
-          ),
-        );
-        callArgs.add(code.refer(pName).property('toJS'));
-      } else if (p.type == 'u64') {
-        dartParams.add(
-          code.Parameter(
-            (b) => b
-              ..name = pName
-              ..type = code.refer('int'),
-          ),
-        );
-        // Convert to JS BigInt via jsBigInt(p.toString())
-        callArgs.add(
-          code.refer('jsBigInt').call([
-            code.refer(pName).property('toString').call([]),
-          ]),
-        );
-      } else {
-        // Fallback
-        dartParams.add(
-          code.Parameter(
-            (b) => b
-              ..name = pName
-              ..type = code.refer('int'),
-          ),
-        );
-        callArgs.add(code.refer(pName).property('toJS'));
-      }
-    }
-
-    final bodyStatements = [
-      code
-          .declareFinal('iface')
-          .assign(
-            code
-                .refer('_module')
-                .property('getProperty')
-                .call([code.literalString(interfaceName).property('toJS')])
-                .asA(code.refer('JSObject', 'dart:js_interop')),
-          )
-          .statement,
-      code
-          .declareFinal('func')
-          .assign(
-            code
-                .refer('iface')
-                .property('getProperty')
-                .call([code.literalString(name).property('toJS')])
-                .asA(code.refer('JSFunction', 'dart:js_interop')),
-          )
-          .statement,
-    ];
-
-    if (resultType == 'string') {
-      bodyStatements.addAll([
-        code
-            .declareFinal('result')
-            .assign(
-              code
-                  .refer('func')
-                  .property('callAsFunction')
-                  .call([code.literalNull, ...callArgs])
-                  .asA(code.refer('JSString', 'dart:js_interop')),
-            )
-            .statement,
-        code.refer('result').property('toDart').returned.statement,
-      ]);
-    } else if (resultType == 'u64') {
-      bodyStatements.addAll([
-        code
-            .declareFinal('result')
-            .assign(
-              code.refer('func').property('callAsFunction').call([
-                code.literalNull,
-                ...callArgs,
-              ]),
-            )
-            .statement,
-        code
-            .refer('int')
-            .property('parse')
-            .call([code.refer('result').property('toString').call([])])
-            .returned
-            .statement,
-      ]);
-    } else {
-      bodyStatements.addAll([
-        code
-            .declareFinal('result')
-            .assign(
-              code.refer('func').property('callAsFunction').call([
-                code.literalNull,
-                ...callArgs,
-              ]),
-            )
-            .statement,
-        code.refer('result').returned.statement,
-      ]);
-    }
-
-    methods.add(
-      code.Method(
-        (b) => b
-          ..name = name
-          ..returns = resultType == 'string'
-              ? code.refer('String')
-              : code.refer('int')
-          ..requiredParameters.addAll(dartParams)
-          ..body = code.Block.of(bodyStatements),
-      ),
-    );
-  }
+  final methodGen = MethodGenerator();
+  final methods = functions
+      .map((f) => methodGen.generateMethod(f, interfaceName))
+      .toList();
 
   return code.Library(
     (b) => b

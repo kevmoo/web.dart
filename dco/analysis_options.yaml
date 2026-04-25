@@ -19,6 +19,7 @@ linter:
   - no_adjacent_strings_in_list
   - no_runtimeType_toString
   - prefer_const_declarations
+  - prefer_expression_function_bodies
   - prefer_final_locals
   - unnecessary_await_in_return
   - unnecessary_ignore

@@ -12,6 +12,10 @@
 - **Rule**: Keep entrypoints minimal. Move heavy logic to `lib/src/`.
 - **Rule**: Follow standard Dart package conventions.
 
+## Dart Coding Style
+- **Rule**: Prefer **switch expressions** over `if-else` blocks for pattern matching or mapping values to expressions (introduced in Dart 3.0).
+
+
 ## Lessons Learned & Pitfalls to Avoid (For Future Agents)
 - **Preserve State when Overwriting**: When updating files (especially large ones like `generator.dart`), be extremely careful not to overwrite lines with older versions from your memory or previous views. Always read the *current* content first or use targeted replaces instead of full overrides unless you have carefully merged all changes.
 - **Scoped Emitter and String Code**: If you use `DartEmitter.scoped()`, remember that it generates its own prefixes (like `_i1`, `_i2`). Do NOT hardcode prefixes like `web.` in raw `Code` strings, as they will likely conflict with what the emitter generates! Use the full API with `refer(symbol, url)` so the emitter can handle prefixes automatically.

@@ -18,6 +18,3 @@ impl bindings::exports::docs::adder::add::Guest for AdderComponent {
         format!("Hello, {}!", name)
     }
 }
-
-
-
