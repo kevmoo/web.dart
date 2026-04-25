@@ -2,18 +2,318 @@
   "worlds": [
     {
       "name": "root",
-      "imports": {},
-      "exports": {
+      "imports": {
         "interface-0": {
           "interface": {
             "id": 0
           }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-9": {
+          "interface": {
+            "id": 9
+          }
+        },
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-11": {
+          "interface": {
+            "id": 11
+          }
+        },
+        "interface-12": {
+          "interface": {
+            "id": 12
+          }
         }
       },
-      "package": 1
+      "exports": {
+        "interface-13": {
+          "interface": {
+            "id": 13
+          }
+        }
+      },
+      "package": 3
     }
   ],
   "interfaces": [
+    {
+      "name": "poll",
+      "types": {
+        "pollable": 0
+      },
+      "functions": {
+        "[method]pollable.block": {
+          "name": "[method]pollable.block",
+          "kind": {
+            "method": 0
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 1
+            }
+          ]
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "error",
+      "types": {
+        "error": 2
+      },
+      "functions": {},
+      "package": 0
+    },
+    {
+      "name": "streams",
+      "types": {
+        "input-stream": 3,
+        "output-stream": 4,
+        "error": 5,
+        "stream-error": 7,
+        "pollable": 8
+      },
+      "functions": {
+        "[method]output-stream.check-write": {
+          "name": "[method]output-stream.check-write",
+          "kind": {
+            "method": 4
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 9
+            }
+          ],
+          "result": 10
+        },
+        "[method]output-stream.write": {
+          "name": "[method]output-stream.write",
+          "kind": {
+            "method": 4
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 9
+            },
+            {
+              "name": "contents",
+              "type": 11
+            }
+          ],
+          "result": 12
+        },
+        "[method]output-stream.blocking-flush": {
+          "name": "[method]output-stream.blocking-flush",
+          "kind": {
+            "method": 4
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 9
+            }
+          ],
+          "result": 12
+        },
+        "[method]output-stream.subscribe": {
+          "name": "[method]output-stream.subscribe",
+          "kind": {
+            "method": 4
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 9
+            }
+          ],
+          "result": 13
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "environment",
+      "types": {},
+      "functions": {
+        "get-environment": {
+          "name": "get-environment",
+          "kind": "freestanding",
+          "params": [],
+          "result": 15
+        }
+      },
+      "package": 1
+    },
+    {
+      "name": "exit",
+      "types": {},
+      "functions": {
+        "exit": {
+          "name": "exit",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "status",
+              "type": 16
+            }
+          ]
+        }
+      },
+      "package": 1
+    },
+    {
+      "name": "stdin",
+      "types": {
+        "input-stream": 17
+      },
+      "functions": {
+        "get-stdin": {
+          "name": "get-stdin",
+          "kind": "freestanding",
+          "params": [],
+          "result": 18
+        }
+      },
+      "package": 1
+    },
+    {
+      "name": "stdout",
+      "types": {
+        "output-stream": 19
+      },
+      "functions": {
+        "get-stdout": {
+          "name": "get-stdout",
+          "kind": "freestanding",
+          "params": [],
+          "result": 20
+        }
+      },
+      "package": 1
+    },
+    {
+      "name": "stderr",
+      "types": {
+        "output-stream": 21
+      },
+      "functions": {
+        "get-stderr": {
+          "name": "get-stderr",
+          "kind": "freestanding",
+          "params": [],
+          "result": 22
+        }
+      },
+      "package": 1
+    },
+    {
+      "name": "terminal-input",
+      "types": {
+        "terminal-input": 23
+      },
+      "functions": {},
+      "package": 1
+    },
+    {
+      "name": "terminal-output",
+      "types": {
+        "terminal-output": 24
+      },
+      "functions": {},
+      "package": 1
+    },
+    {
+      "name": "terminal-stdin",
+      "types": {
+        "terminal-input": 25
+      },
+      "functions": {
+        "get-terminal-stdin": {
+          "name": "get-terminal-stdin",
+          "kind": "freestanding",
+          "params": [],
+          "result": 27
+        }
+      },
+      "package": 1
+    },
+    {
+      "name": "terminal-stdout",
+      "types": {
+        "terminal-output": 28
+      },
+      "functions": {
+        "get-terminal-stdout": {
+          "name": "get-terminal-stdout",
+          "kind": "freestanding",
+          "params": [],
+          "result": 30
+        }
+      },
+      "package": 1
+    },
+    {
+      "name": "terminal-stderr",
+      "types": {
+        "terminal-output": 31
+      },
+      "functions": {
+        "get-terminal-stderr": {
+          "name": "get-terminal-stderr",
+          "kind": "freestanding",
+          "params": [],
+          "result": 33
+        }
+      },
+      "package": 1
+    },
     {
       "name": "add",
       "types": {},
@@ -32,17 +332,355 @@
             }
           ],
           "result": "u64"
+        },
+        "greet": {
+          "name": "greet",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "result": "string"
         }
       },
-      "package": 0
+      "package": 2
     }
   ],
-  "types": [],
+  "types": [
+    {
+      "name": "pollable",
+      "kind": "resource",
+      "owner": {
+        "interface": 0
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 0
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "error",
+      "kind": "resource",
+      "owner": {
+        "interface": 1
+      }
+    },
+    {
+      "name": "input-stream",
+      "kind": "resource",
+      "owner": {
+        "interface": 2
+      }
+    },
+    {
+      "name": "output-stream",
+      "kind": "resource",
+      "owner": {
+        "interface": 2
+      }
+    },
+    {
+      "name": "error",
+      "kind": {
+        "type": 2
+      },
+      "owner": {
+        "interface": 2
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 5
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "stream-error",
+      "kind": {
+        "variant": {
+          "cases": [
+            {
+              "name": "last-operation-failed",
+              "type": 6
+            },
+            {
+              "name": "closed",
+              "type": null
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 2
+      }
+    },
+    {
+      "name": "pollable",
+      "kind": {
+        "type": 0
+      },
+      "owner": {
+        "interface": 2
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 4
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": "u64",
+          "err": 7
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": "u8"
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": null,
+          "err": 7
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 8
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "tuple": {
+          "types": [
+            "string",
+            "string"
+          ]
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 14
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": null,
+          "err": null
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "input-stream",
+      "kind": {
+        "type": 3
+      },
+      "owner": {
+        "interface": 5
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 17
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "output-stream",
+      "kind": {
+        "type": 4
+      },
+      "owner": {
+        "interface": 6
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 19
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "output-stream",
+      "kind": {
+        "type": 4
+      },
+      "owner": {
+        "interface": 7
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 21
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "terminal-input",
+      "kind": "resource",
+      "owner": {
+        "interface": 8
+      }
+    },
+    {
+      "name": "terminal-output",
+      "kind": "resource",
+      "owner": {
+        "interface": 9
+      }
+    },
+    {
+      "name": "terminal-input",
+      "kind": {
+        "type": 23
+      },
+      "owner": {
+        "interface": 10
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 25
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": 26
+      },
+      "owner": null
+    },
+    {
+      "name": "terminal-output",
+      "kind": {
+        "type": 24
+      },
+      "owner": {
+        "interface": 11
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 28
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": 29
+      },
+      "owner": null
+    },
+    {
+      "name": "terminal-output",
+      "kind": {
+        "type": 24
+      },
+      "owner": {
+        "interface": 12
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 31
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": 32
+      },
+      "owner": null
+    }
+  ],
   "packages": [
+    {
+      "name": "wasi:io@0.2.6",
+      "interfaces": {
+        "poll": 0,
+        "error": 1,
+        "streams": 2
+      },
+      "worlds": {}
+    },
+    {
+      "name": "wasi:cli@0.2.6",
+      "interfaces": {
+        "environment": 3,
+        "exit": 4,
+        "stdin": 5,
+        "stdout": 6,
+        "stderr": 7,
+        "terminal-input": 8,
+        "terminal-output": 9,
+        "terminal-stdin": 10,
+        "terminal-stdout": 11,
+        "terminal-stderr": 12
+      },
+      "worlds": {}
+    },
     {
       "name": "docs:adder@0.1.0",
       "interfaces": {
-        "add": 0
+        "add": 13
       },
       "worlds": {}
     },

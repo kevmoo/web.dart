@@ -2,7 +2,9 @@ package docs:adder@0.1.0;
 
 interface add {
     add: func(x: u64, y: u64) -> u64;
+    greet: func(name: string) -> string;
 }
+
 
 world adder {
     export add;

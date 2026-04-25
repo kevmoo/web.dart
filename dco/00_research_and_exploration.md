@@ -12,7 +12,11 @@ Key constraints and goals:
 - For `dart2js`, use a JS bridge.
 - Use `wasm-pkg-tools` to find and inspect components.
 
+## Agent Rules
+- **CRITICAL**: All agents working on this project must read and follow the rules in [AGENT.md](../AGENT.md) at the root of the workspace. This includes strict rules about using the `code_builder` API and communication.
+
 ## Current Status
+
 - [x] Mission document initialized and agent plan drafted in `dco_mission.md`.
 - [/] Initial research on Wasm Component Model v0.3.
 - [ ] Exploration of `wasm-pkg-tools`.

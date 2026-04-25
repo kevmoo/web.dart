@@ -2,96 +2,202 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:code_builder/code_builder.dart' as code;
 import 'package:dart_style/dart_style.dart';
+import 'package:pub_semver/pub_semver.dart';
 import 'model.dart';
 
-code.Library generateBindingsCore(WasmComponentInterface interface) {
+code.Library generateBindingsCore(
+  WasmComponentInterface interface,
+  WasmPackage package,
+) {
   final interfaceName = interface.name;
   final functions = interface.functions;
 
   final className = interfaceName[0].toUpperCase() + interfaceName.substring(1);
-  final exportsClassName = '${className}Exports';
 
   final methods = <code.Method>[];
-  final exportGetters = <code.Method>[];
 
   for (final func in functions) {
     final name = func.name;
     final params = func.params;
+    final resultType = func.result;
 
     final dartParams = <code.Parameter>[];
     final callArgs = <code.Expression>[];
 
     for (final p in params) {
-      dartParams.add(
-        code.Parameter(
-          (b) => b
-            ..name = p.name
-            ..type = code.refer('int'),
-        ),
-      );
-      callArgs.add(code.refer(p.name).property('toJS'));
+      final pName = p.name;
+      if (p.type == 'string') {
+        dartParams.add(
+          code.Parameter(
+            (b) => b
+              ..name = pName
+              ..type = code.refer('String'),
+          ),
+        );
+        callArgs.add(code.refer(pName).property('toJS'));
+      } else if (p.type == 'u64') {
+        dartParams.add(
+          code.Parameter(
+            (b) => b
+              ..name = pName
+              ..type = code.refer('int'),
+          ),
+        );
+        // Convert to JS BigInt via jsBigInt(p.toString())
+        callArgs.add(
+          code.refer('jsBigInt').call([
+            code.refer(pName).property('toString').call([]),
+          ]),
+        );
+      } else {
+        // Fallback
+        dartParams.add(
+          code.Parameter(
+            (b) => b
+              ..name = pName
+              ..type = code.refer('int'),
+          ),
+        );
+        callArgs.add(code.refer(pName).property('toJS'));
+      }
     }
 
-    final tempEmitter = code.DartEmitter();
-    final argsString = callArgs.map((e) => e.accept(tempEmitter)).join(', ');
+    final bodyStatements = [
+      code
+          .declareFinal('iface')
+          .assign(
+            code
+                .refer('_module')
+                .property('getProperty')
+                .call([code.literalString(interfaceName).property('toJS')])
+                .asA(code.refer('JSObject', 'dart:js_interop')),
+          )
+          .statement,
+      code
+          .declareFinal('func')
+          .assign(
+            code
+                .refer('iface')
+                .property('getProperty')
+                .call([code.literalString(name).property('toJS')])
+                .asA(code.refer('JSFunction', 'dart:js_interop')),
+          )
+          .statement,
+    ];
+
+    if (resultType == 'string') {
+      bodyStatements.addAll([
+        code
+            .declareFinal('result')
+            .assign(
+              code
+                  .refer('func')
+                  .property('callAsFunction')
+                  .call([code.literalNull, ...callArgs])
+                  .asA(code.refer('JSString', 'dart:js_interop')),
+            )
+            .statement,
+        code.refer('result').property('toDart').returned.statement,
+      ]);
+    } else if (resultType == 'u64') {
+      bodyStatements.addAll([
+        code
+            .declareFinal('result')
+            .assign(
+              code.refer('func').property('callAsFunction').call([
+                code.literalNull,
+                ...callArgs,
+              ]),
+            )
+            .statement,
+        code
+            .refer('int')
+            .property('parse')
+            .call([code.refer('result').property('toString').call([])])
+            .returned
+            .statement,
+      ]);
+    } else {
+      bodyStatements.addAll([
+        code
+            .declareFinal('result')
+            .assign(
+              code.refer('func').property('callAsFunction').call([
+                code.literalNull,
+                ...callArgs,
+              ]),
+            )
+            .statement,
+        code.refer('result').returned.statement,
+      ]);
+    }
 
     methods.add(
       code.Method(
         (b) => b
           ..name = name
-          ..returns = code.refer('int')
+          ..returns = resultType == 'string'
+              ? code.refer('String')
+              : code.refer('int')
           ..requiredParameters.addAll(dartParams)
-          ..body = code.Block.of([
-            code.Code(
-              'final result = _exports._$name.callAsFunction('
-              'null, $argsString) as JSNumber;',
-            ),
-
-            code.refer('result').property('toDartInt').returned.statement,
-          ]),
-      ),
-    );
-
-    exportGetters.add(
-      code.Method(
-        (b) => b
-          ..name = '_$name'
-          ..type = code.MethodType.getter
-          ..external = true
-          ..annotations.add(code.refer('JS').call([code.literalString(name)]))
-          ..returns = code.refer('JSFunction'),
+          ..body = code.Block.of(bodyStatements),
       ),
     );
   }
 
   return code.Library(
     (b) => b
-      ..directives.addAll([
-        code.Directive.import('dart:js_interop'),
-        code.Directive.import('package:web/web.dart', as: 'web'),
-      ])
+      ..directives.addAll([code.Directive.import('dart:js_interop_unsafe')])
       ..body.addAll([
-        code.ExtensionType(
+        // jsEval helper
+        code.Method(
           (b) => b
-            ..name = exportsClassName
-            ..primaryConstructorName = '_'
-            ..representationDeclaration = code.RepresentationDeclaration(
-              (b) => b
-                ..name = '_'
-                ..declaredRepresentationType = code.refer('JSObject'),
+            ..name = 'jsEval'
+            ..external = true
+            ..annotations.add(
+              code.refer('JS', 'dart:js_interop').call([
+                code.literalString('eval'),
+              ]),
             )
-            ..implements.add(code.refer('JSObject'))
-            ..methods.addAll(exportGetters),
+            ..returns = code.refer('JSAny', 'dart:js_interop')
+            ..requiredParameters.add(
+              code.Parameter(
+                (b) => b
+                  ..name = 'code'
+                  ..type = code.refer('String'),
+              ),
+            ),
         ),
 
+        // jsBigInt helper
+        code.Method(
+          (b) => b
+            ..name = 'jsBigInt'
+            ..external = true
+            ..annotations.add(
+              code.refer('JS', 'dart:js_interop').call([
+                code.literalString('BigInt'),
+              ]),
+            )
+            ..returns = code.refer('JSAny', 'dart:js_interop')
+            ..requiredParameters.add(
+              code.Parameter(
+                (b) => b
+                  ..name = 'value'
+                  ..type = code.refer('String'),
+              ),
+            ),
+        ),
+
+        // Class
         code.Class(
           (b) => b
             ..name = className
             ..fields.add(
               code.Field(
                 (b) => b
-                  ..name = '_exports'
-                  ..type = code.refer(exportsClassName)
+                  ..name = '_module'
+                  ..type = code.refer('JSObject', 'dart:js_interop')
                   ..modifier = code.FieldModifier.final$,
               ),
             )
@@ -101,64 +207,59 @@ code.Library generateBindingsCore(WasmComponentInterface interface) {
                   ..requiredParameters.add(
                     code.Parameter(
                       (b) => b
-                        ..name = 'instance'
-                        ..type = code.refer('web.Instance'),
-                    ),
-                  )
-                  ..initializers.add(
-                    code.Code(
-                      '_exports = instance.exports as $exportsClassName',
+                        ..name = '_module'
+                        ..toThis = true,
                     ),
                   ),
               ),
             )
             ..methods.addAll([
+              // load
               code.Method(
                 (b) => b
-                  ..name = 'instantiateStreaming'
+                  ..name = 'load'
                   ..static = true
-                  ..returns = code.refer('Future<$className>')
+                  ..returns = code.TypeReference(
+                    (b) => b
+                      ..symbol = 'Future'
+                      ..types.add(code.refer(className)),
+                  )
                   ..requiredParameters.add(
                     code.Parameter(
                       (b) => b
-                        ..name = 'source'
-                        ..type = code.refer('Future<web.Response>'),
+                        ..name = 'modulePath'
+                        ..type = code.refer('String'),
                     ),
                   )
                   ..body = code.Block.of([
-                    const code.Code(
-                      'final promise = '
-                      'web.WebAssembly.instantiateStreaming(source.toJS);',
-                    ),
-
-                    const code.Code('final result = await promise.toDart;'),
-                    code.Code('return $className(result.instance);'),
-                  ])
-                  ..modifier = code.MethodModifier.async,
-              ),
-              code.Method(
-                (b) => b
-                  ..name = 'instantiate'
-                  ..static = true
-                  ..returns = code.refer('Future<$className>')
-                  ..requiredParameters.add(
-                    code.Parameter(
-                      (b) => b
-                        ..name = 'bytes'
-                        ..type = code.refer('web.BufferSource'),
-                    ),
-                  )
-                  ..body = code.Block.of([
-                    const code.Code(
-                      'final promise = web.WebAssembly.instantiate(bytes);',
-                    ),
-                    const code.Code('final result = await promise.toDart;'),
-                    const code.Code(
-                      'final instantiated = '
-                      'result as web.WebAssemblyInstantiatedSource;',
-                    ),
-
-                    code.Code('return $className(instantiated.instance);'),
+                    code
+                        .declareFinal('promise')
+                        .assign(
+                          code
+                              .refer('jsEval')
+                              .call([
+                                const code.CodeExpression(
+                                  code.Code('\'import("\$modulePath")\''),
+                                ),
+                              ])
+                              .asA(code.refer('JSPromise', 'dart:js_interop')),
+                        )
+                        .statement,
+                    code
+                        .declareFinal('module')
+                        .assign(
+                          code
+                              .refer('promise')
+                              .property('toDart')
+                              .awaited
+                              .asA(code.refer('JSObject', 'dart:js_interop')),
+                        )
+                        .statement,
+                    code
+                        .refer(className)
+                        .call([code.refer('module')])
+                        .returned
+                        .statement,
                   ])
                   ..modifier = code.MethodModifier.async,
               ),
@@ -178,24 +279,20 @@ String generateBindings(String jsonPath) {
   final jsonString = jsonFile.readAsStringSync();
   final data = json.decode(jsonString) as Map<String, dynamic>;
 
-  final interfaces = data['interfaces'] as List<dynamic>;
-  if (interfaces.isEmpty) {
-    throw Exception('Error: No interfaces found in JSON.');
-  }
+  final model = WitModel.fromJson(data);
 
-  final interfaceJson = interfaces.first as Map<String, dynamic>;
-  final interface = WasmComponentInterface.fromJson(interfaceJson);
-
-  final library = generateBindingsCore(interface);
-
-  final emitter = code.DartEmitter(
-    allocator: code.Allocator(),
-    orderDirectives: true,
-    useNullSafetySyntax: true,
+  final interface = model.interfaces.firstWhere((i) => i.name == 'add');
+  final package = model.packages.firstWhere(
+    (p) => p.namespace == 'docs' && p.packageName == 'adder',
   );
+
+  final library = generateBindingsCore(interface, package);
+
+  final emitter = code.DartEmitter.scoped(orderDirectives: true);
+
   final source = library.accept(emitter).toString();
-  final formatter = DartFormatter(
-    languageVersion: DartFormatter.latestShortStyleLanguageVersion,
-  );
-  return formatter.format(source);
+  final fullSource = '// ignore_for_file: unnecessary_parenthesis\n\n$source';
+
+  final formatter = DartFormatter(languageVersion: Version(3, 10, 0));
+  return formatter.format(fullSource);
 }

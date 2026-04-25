@@ -11,3 +11,5 @@ web_generator/node_modules
 .compile.lock
 .last_npm_install
 _wasm_rust_example/target
+dco/node_modules
+dco/example/jco_output

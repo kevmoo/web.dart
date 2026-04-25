@@ -1,33 +1,40 @@
-import 'dart:js_interop';
+// ignore_for_file: unnecessary_parenthesis
 
-import 'package:web/web.dart' as web;
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'dart:js_interop' as _i1;
+import 'dart:js_interop_unsafe';
 
-extension type AddExports._(JSObject _) implements JSObject {
-  @JS('add')
-  external JSFunction get _add;
-}
+@_i1.JS('eval')
+external _i1.JSAny jsEval(String code);
+@_i1.JS('BigInt')
+external _i1.JSAny jsBigInt(String value);
 
 class Add {
-  Add(web.Instance instance) : _exports = instance.exports as AddExports;
+  Add(this._module);
 
-  final AddExports _exports;
+  final _i1.JSObject _module;
 
-  static Future<Add> instantiateStreaming(Future<web.Response> source) async {
-    final promise = web.WebAssembly.instantiateStreaming(source.toJS);
-    final result = await promise.toDart;
-    return Add(result.instance);
-  }
-
-  static Future<Add> instantiate(web.BufferSource bytes) async {
-    final promise = web.WebAssembly.instantiate(bytes);
-    final result = await promise.toDart;
-    final instantiated = result as web.WebAssemblyInstantiatedSource;
-    return Add(instantiated.instance);
+  static Future<Add> load(String modulePath) async {
+    final promise = (jsEval('import("$modulePath")') as _i1.JSPromise);
+    final module = (await promise.toDart as _i1.JSObject);
+    return Add(module);
   }
 
   int add(int x, int y) {
-    final result =
-        _exports._add.callAsFunction(null, x.toJS, y.toJS) as JSNumber;
-    return result.toDartInt;
+    final iface = (_module.getProperty('add'.toJS) as _i1.JSObject);
+    final func = (iface.getProperty('add'.toJS) as _i1.JSFunction);
+    final result = func.callAsFunction(
+      null,
+      jsBigInt(x.toString()),
+      jsBigInt(y.toString()),
+    );
+    return int.parse(result.toString());
+  }
+
+  String greet(String name) {
+    final iface = (_module.getProperty('add'.toJS) as _i1.JSObject);
+    final func = (iface.getProperty('greet'.toJS) as _i1.JSFunction);
+    final result = (func.callAsFunction(null, name.toJS) as _i1.JSString);
+    return result.toDart;
   }
 }
