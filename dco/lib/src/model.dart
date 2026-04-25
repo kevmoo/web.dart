@@ -2,11 +2,13 @@ class WitModel {
   final List<WasmPackage> packages;
   final List<WasmComponentInterface> interfaces;
   final List<WasmWorld> worlds;
+  final List<WasmType> types;
 
   WitModel({
     required this.packages,
     required this.interfaces,
     required this.worlds,
+    required this.types,
   });
 
   factory WitModel.fromJson(Map<String, dynamic> json) {
@@ -25,7 +27,17 @@ class WitModel {
         .map((w) => WasmWorld.fromJson(w as Map<String, dynamic>))
         .toList();
 
-    return WitModel(packages: packages, interfaces: interfaces, worlds: worlds);
+    final typesList = json['types'] as List<dynamic>;
+    final types = typesList
+        .map((t) => WasmType.fromJson(t as Map<String, dynamic>))
+        .toList();
+
+    return WitModel(
+      packages: packages,
+      interfaces: interfaces,
+      worlds: worlds,
+      types: types,
+    );
   }
 }
 
@@ -147,4 +159,53 @@ class PrimitiveWitType extends WitType {
 class ReferenceWitType extends WitType {
   final int id;
   ReferenceWitType(this.id) : super._();
+}
+
+// New models for type definitions
+sealed class WasmType {
+  final String? name;
+  WasmType({this.name});
+
+  factory WasmType.fromJson(Map<String, dynamic> json) {
+    final name = json['name'] as String?;
+    final kind = json['kind'];
+
+    if (kind is Map<String, dynamic>) {
+      if (kind.containsKey('record')) {
+        final record = kind['record'] as Map<String, dynamic>;
+        final fieldsList = record['fields'] as List<dynamic>;
+        final fields = fieldsList
+            .map((f) => WasmField.fromJson(f as Map<String, dynamic>))
+            .toList();
+        return WasmRecordType(name: name, fields: fields);
+      }
+      final kindName = kind.keys.first;
+      return WasmOtherType(name: name, kind: kindName);
+    } else if (kind is String) {
+      return WasmOtherType(name: name, kind: kind);
+    }
+
+    return WasmOtherType(name: name, kind: 'unknown');
+  }
+}
+
+class WasmRecordType extends WasmType {
+  final List<WasmField> fields;
+  WasmRecordType({super.name, required this.fields});
+}
+
+class WasmField {
+  final String name;
+  final WitType type;
+  WasmField({required this.name, required this.type});
+
+  factory WasmField.fromJson(Map<String, dynamic> json) => WasmField(
+    name: json['name'] as String,
+    type: WitType(json['type'] as Object),
+  );
+}
+
+class WasmOtherType extends WasmType {
+  final String kind;
+  WasmOtherType({super.name, required this.kind});
 }

@@ -1,12 +1,17 @@
 import 'package:code_builder/code_builder.dart' as code;
 import 'model.dart';
 import 'type_mapper.dart';
+import 'utils.dart';
 
 class MethodGenerator {
-  final TypeMapper _typeMapper = TypeMapper();
+  final TypeMapper _typeMapper;
+
+  MethodGenerator(List<WasmType> types) : _typeMapper = TypeMapper(types);
 
   code.Method generateMethod(WasmFunction func, String interfaceName) {
     final name = func.name;
+    final dartMethodName = kebabToCamelCase(name);
+
     final params = func.params;
     final resultType = func.result;
 
@@ -97,7 +102,7 @@ class MethodGenerator {
 
     return code.Method(
       (b) => b
-        ..name = name
+        ..name = dartMethodName
         ..returns = _typeMapper.mapDartType(resultType)
         ..requiredParameters.addAll(dartParams)
         ..body = code.Block.of(bodyStatements),

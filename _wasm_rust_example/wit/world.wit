@@ -1,9 +1,16 @@
 package docs:adder@0.1.0;
 
 interface add {
+    record person {
+        name: string,
+        age: u32,
+    }
+
     add: func(x: u64, y: u64) -> u64;
     greet: func(name: string) -> string;
+    show-person: func(p: person) -> string;
 }
+
 
 
 world adder {

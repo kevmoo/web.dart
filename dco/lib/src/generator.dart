@@ -5,25 +5,40 @@ import 'package:dart_style/dart_style.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'method_generator.dart';
 import 'model.dart';
+import 'struct_generator.dart';
+import 'utils.dart';
 
 code.Library generateBindingsCore(
   WasmComponentInterface interface,
   WasmPackage package,
+  List<WasmType> types,
 ) {
   final interfaceName = interface.name;
   final functions = interface.functions;
 
-  final className = interfaceName[0].toUpperCase() + interfaceName.substring(1);
+  final className = capitalize(interfaceName);
 
-  final methodGen = MethodGenerator();
+  final methodGen = MethodGenerator(types);
   final methods = functions
       .map((f) => methodGen.generateMethod(f, interfaceName))
       .toList();
+
+  final structGen = StructGenerator(types);
+
+  final structs = <code.ExtensionType>[];
+  for (final type in types) {
+    if (type is WasmRecordType) {
+      structs.add(structGen.generateStruct(type));
+    }
+  }
 
   return code.Library(
     (b) => b
       ..directives.addAll([code.Directive.import('dart:js_interop_unsafe')])
       ..body.addAll([
+        // Structs
+        ...structs,
+
         // jsEval helper
         code.Method(
           (b) => b
@@ -161,7 +176,7 @@ String generateBindings(String jsonPath) {
     (p) => p.namespace == 'docs' && p.packageName == 'adder',
   );
 
-  final library = generateBindingsCore(interface, package);
+  final library = generateBindingsCore(interface, package, model.types);
 
   final emitter = code.DartEmitter.scoped(orderDirectives: true);
 

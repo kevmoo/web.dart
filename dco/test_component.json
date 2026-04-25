@@ -316,7 +316,9 @@
     },
     {
       "name": "add",
-      "types": {},
+      "types": {
+        "person": 34
+      },
       "functions": {
         "add": {
           "name": "add",
@@ -340,6 +342,17 @@
             {
               "name": "name",
               "type": "string"
+            }
+          ],
+          "result": "string"
+        },
+        "show-person": {
+          "name": "show-person",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "p",
+              "type": 34
             }
           ],
           "result": "string"
@@ -649,6 +662,26 @@
         "option": 32
       },
       "owner": null
+    },
+    {
+      "name": "person",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "age",
+              "type": "u32"
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 13
+      }
     }
   ],
   "packages": [

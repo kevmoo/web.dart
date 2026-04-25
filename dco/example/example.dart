@@ -4,6 +4,10 @@
 import 'dart:js_interop' as _i1;
 import 'dart:js_interop_unsafe';
 
+extension type Person._(_i1.JSObject _) implements _i1.JSObject {
+  external String get name;
+  external int get age;
+}
 @_i1.JS('eval')
 external _i1.JSAny jsEval(String code);
 @_i1.JS('BigInt')
@@ -35,6 +39,13 @@ class Add {
     final iface = (_module.getProperty('add'.toJS) as _i1.JSObject);
     final func = (iface.getProperty('greet'.toJS) as _i1.JSFunction);
     final result = (func.callAsFunction(null, name.toJS) as _i1.JSString);
+    return result.toDart;
+  }
+
+  String showPerson(Person p) {
+    final iface = (_module.getProperty('add'.toJS) as _i1.JSObject);
+    final func = (iface.getProperty('show-person'.toJS) as _i1.JSFunction);
+    final result = (func.callAsFunction(null, p) as _i1.JSString);
     return result.toDart;
   }
 }
