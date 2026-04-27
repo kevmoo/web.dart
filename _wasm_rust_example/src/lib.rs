@@ -18,8 +18,9 @@ impl bindings::exports::docs::adder::add::Guest for AdderComponent {
         format!("Hello, {}!", name)
     }
 
-    fn show_person(p: bindings::exports::docs::adder::add::Person) -> String {
-        format!("{} is {} years old", p.name, p.age)
+    fn show_person(p: bindings::exports::docs::adder::add::Person) -> u32 {
+        p.age
     }
+
 }
 
