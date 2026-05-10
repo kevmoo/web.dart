@@ -49,7 +49,7 @@ extension type UIEvent._(JSObject _) implements Event, JSObject {
   ///
   /// > [!WARNING]
   /// > Do not use this method anymore as it is deprecated.
-  /// >
+  /// &gt;
   /// > Instead use specific event constructors, like [UIEvent.UIEvent]. The
   /// > page on
   /// > [Creating and triggering events](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events)
@@ -120,37 +120,37 @@ extension type FocusEvent._(JSObject _) implements UIEvent, JSObject {
   /// The **`relatedTarget`** read-only property of the [FocusEvent] interface
   /// is the secondary target, depending on the type of event:
   ///
-  /// <table class="no-markdown">
-  ///   <thead>
-  ///     <tr>
-  ///       <th scope="col">Event name</th>
-  ///       <th scope="col"><code>target</code></th>
-  ///       <th scope="col"><code>relatedTarget</code></th>
-  ///     </tr>
-  ///   </thead>
-  ///   <tbody>
-  ///     <tr>
-  ///       <td>[Element.blur_event]</td>
-  ///       <td>The [EventTarget] losing focus</td>
-  ///       <td>The [EventTarget] receiving focus (if any).</td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[Element.focus_event]</td>
-  ///       <td>The [EventTarget] receiving focus</td>
-  ///       <td>The [EventTarget] losing focus (if any)</td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[Element.focusin_event]</td>
-  ///       <td>The [EventTarget] receiving focus</td>
-  ///       <td>The [EventTarget] losing focus (if any)</td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[Element.focusout_event]</td>
-  ///       <td>The [EventTarget] losing focus</td>
-  ///       <td>The [EventTarget] receiving focus (if any)</td>
-  ///     </tr>
-  ///   </tbody>
-  /// </table>
+  /// &lt;table class="no-markdown"&gt;
+  /// &lt;thead&gt;
+  /// &lt;tr&gt;
+  /// &lt;th scope="col"&gt;Event name&lt;/th&gt;
+  /// &lt;th scope="col"&gt;&lt;code&gt;target&lt;/code&gt;&lt;/th&gt;
+  /// &lt;th scope="col"&gt;&lt;code&gt;relatedTarget&lt;/code&gt;&lt;/th&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/thead&gt;
+  /// &lt;tbody&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.blur_event]&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] losing focus&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] receiving focus (if any).&lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.focus_event]&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] receiving focus&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] losing focus (if any)&lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.focusin_event]&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] receiving focus&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] losing focus (if any)&lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.focusout_event]&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] losing focus&lt;/td&gt;
+  /// &lt;td&gt;The [EventTarget] receiving focus (if any)&lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/tbody&gt;
+  /// &lt;/table&gt;
   ///
   /// Note that [many elements can't have
   /// focus](https://stackoverflow.com/questions/42764494/blur-event-relatedtarget-returns-null/42764495),
@@ -211,7 +211,7 @@ extension type MouseEvent._(JSObject _) implements UIEvent, JSObject {
   ///
   /// > [!WARNING]
   /// > Do not use this method anymore as it is deprecated.
-  /// >
+  /// &gt;
   /// > Instead use specific event constructors, like [MouseEvent.MouseEvent].
   /// > The page on
   /// > [Creating and triggering events](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events)
@@ -273,47 +273,49 @@ extension type MouseEvent._(JSObject _) implements UIEvent, JSObject {
   external int get clientY;
 
   /// The **`MouseEvent.ctrlKey`** read-only property is a boolean value that
-  /// indicates whether the <kbd>ctrl</kbd> key was pressed or not when a given
-  /// mouse event occurs.
+  /// indicates whether the &lt;kbd&gt;ctrl&lt;/kbd&gt; key was pressed or not
+  /// when a given mouse event occurs.
   ///
-  /// On Macintosh keyboards, this key is labeled the <kbd>control</kbd> key.
-  /// Also, note that on a Mac, a click combined with the <kbd>control</kbd> key
-  /// is intercepted by the operating system and used to open a context menu, so
-  /// `ctrlKey` is not detectable on click events.
+  /// On Macintosh keyboards, this key is labeled the
+  /// &lt;kbd&gt;control&lt;/kbd&gt; key. Also, note that on a Mac, a click
+  /// combined with the &lt;kbd&gt;control&lt;/kbd&gt; key is intercepted by the
+  /// operating system and used to open a context menu, so `ctrlKey` is not
+  /// detectable on click events.
   external bool get ctrlKey;
 
   /// The **`MouseEvent.shiftKey`** read-only property is a boolean value that
-  /// indicates whether the <kbd>shift</kbd> key was pressed or not when a given
-  /// mouse event occurs.
+  /// indicates whether the &lt;kbd&gt;shift&lt;/kbd&gt; key was pressed or not
+  /// when a given mouse event occurs.
   external bool get shiftKey;
 
   /// The **`MouseEvent.altKey`** read-only property is a boolean value that
-  /// indicates whether the <kbd>alt</kbd> key was pressed or not when a given
-  /// mouse event occurs.
+  /// indicates whether the &lt;kbd&gt;alt&lt;/kbd&gt; key was pressed or not
+  /// when a given mouse event occurs.
   ///
-  /// Be aware that the browser can't always detect the <kbd>alt</kbd> key on
-  /// some operating systems.
+  /// Be aware that the browser can't always detect the
+  /// &lt;kbd&gt;alt&lt;/kbd&gt; key on some operating systems.
   /// On some Linux variants, for example, a left mouse click combined with the
-  /// <kbd>alt</kbd> key is used to move or resize windows.
+  /// &lt;kbd&gt;alt&lt;/kbd&gt; key is used to move or resize windows.
   ///
   /// > [!NOTE]
-  /// > On Macintosh keyboards, this key is also known as the <kbd>option</kbd>
-  /// > key.
+  /// > On Macintosh keyboards, this key is also known as the
+  /// > &lt;kbd&gt;option&lt;/kbd&gt; key.
   external bool get altKey;
 
   /// The **`MouseEvent.metaKey`** read-only property is a boolean value that
-  /// indicates whether the <kbd>meta</kbd> key was pressed or not when a given
-  /// mouse event occurs.
+  /// indicates whether the &lt;kbd&gt;meta&lt;/kbd&gt; key was pressed or not
+  /// when a given mouse event occurs.
   ///
   /// Be aware that many operating systems bind special functionality to the
-  /// <kbd>meta</kbd> key, so this property may be `false` even when the key is
-  /// actually pressed.
+  /// &lt;kbd&gt;meta&lt;/kbd&gt; key, so this property may be `false` even when
+  /// the key is actually pressed.
   /// On Windows, for example, this key may open the Start menu.
   ///
   /// > [!NOTE]
-  /// > On Macintosh keyboards, this key is the <kbd>command</kbd> key
-  /// > (<kbd>⌘</kbd>).
-  /// > On Windows keyboards, this key is the Windows key (<kbd>⊞</kbd>).
+  /// > On Macintosh keyboards, this key is the &lt;kbd&gt;command&lt;/kbd&gt;
+  /// > key (&lt;kbd&gt;⌘&lt;/kbd&gt;).
+  /// > On Windows keyboards, this key is the Windows key
+  /// > (&lt;kbd&gt;⊞&lt;/kbd&gt;).
   external bool get metaKey;
 
   /// The **`MouseEvent.button`** read-only property indicates which button was
@@ -361,71 +363,71 @@ extension type MouseEvent._(JSObject _) implements UIEvent, JSObject {
   ///
   /// That is:
   ///
-  /// <table class="no-markdown">
-  ///   <thead>
-  ///     <tr>
-  ///       <th>Event name</th>
-  ///       <th><code>target</code></th>
-  ///       <th><code>relatedTarget</code></th>
-  ///     </tr>
-  ///   </thead>
-  ///   <tbody>
-  ///     <tr>
-  ///       <td>[Element.mouseenter_event]</td>
-  ///       <td>
+  /// &lt;table class="no-markdown"&gt;
+  /// &lt;thead&gt;
+  /// &lt;tr&gt;
+  /// &lt;th&gt;Event name&lt;/th&gt;
+  /// &lt;th&gt;&lt;code&gt;target&lt;/code&gt;&lt;/th&gt;
+  /// &lt;th&gt;&lt;code&gt;relatedTarget&lt;/code&gt;&lt;/th&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/thead&gt;
+  /// &lt;tbody&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.mouseenter_event]&lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device entered to
-  ///       </td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device exited from
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[Element.mouseleave_event]</td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.mouseleave_event]&lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device exited from
-  ///       </td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device entered to
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[Element.mouseout_event]</td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.mouseout_event]&lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device exited from
-  ///       </td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device entered to
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[Element.mouseover_event]</td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[Element.mouseover_event]&lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device entered to
-  ///       </td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device exited from
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[HTMLElement.dragenter_event]</td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[HTMLElement.dragenter_event]&lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device entered to
-  ///       </td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device exited from
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>[HTMLElement.dragleave_event]</td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;[HTMLElement.dragleave_event]&lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device exited from
-  ///       </td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;td&gt;
   /// The [EventTarget] the pointing device entered to
-  ///       </td>
-  ///     </tr>
-  ///   </tbody>
-  /// </table>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/tbody&gt;
+  /// &lt;/table&gt;
   ///
   /// For events with no secondary target, `relatedTarget` returns
   /// `null`.
@@ -757,42 +759,45 @@ extension type InputEvent._(JSObject _) implements UIEvent, JSObject {
   /// Depending on the value of `inputType` and the current editing host, the
   /// expected return value of this method varies:
   ///
-  /// <table>
-  ///   <thead>
-  ///     <tr>
-  ///       <th>inputType</th>
-  ///       <th>Editing host</th>
-  ///       <th>Response of <code>getTargetRanges()</code></th>
-  ///     </tr>
-  ///   </thead>
-  ///   <tbody>
-  ///     <tr>
-  ///       <td><code>"historyUndo"</code> or <code>"historyRedo"</code></td>
-  ///       <td>Any</td>
-  ///       <td>empty Array</td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>All remaining</td>
-  ///       <td><code>contenteditable</code></td>
-  ///       <td>
+  /// &lt;table&gt;
+  /// &lt;thead&gt;
+  /// &lt;tr&gt;
+  /// &lt;th&gt;inputType&lt;/th&gt;
+  /// &lt;th&gt;Editing host&lt;/th&gt;
+  /// &lt;th&gt;Response of
+  /// &lt;code&gt;getTargetRanges()&lt;/code&gt;&lt;/th&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/thead&gt;
+  /// &lt;tbody&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;&lt;code&gt;"historyUndo"&lt;/code&gt; or
+  /// &lt;code&gt;"historyRedo"&lt;/code&gt;&lt;/td&gt;
+  /// &lt;td&gt;Any&lt;/td&gt;
+  /// &lt;td&gt;empty Array&lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;All remaining&lt;/td&gt;
+  /// &lt;td&gt;&lt;code&gt;contenteditable&lt;/code&gt;&lt;/td&gt;
+  /// &lt;td&gt;
   /// an Array of
   /// [StaticRange]
   /// objects associated with event
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>All remaining</td>
-  ///       <td>
-  ///         <a href="/en-US/docs/Web/HTML/Element/input"><code>input</code></a>
-  /// or <a
-  /// href="/en-US/docs/Web/HTML/Element/textarea"><code>textarea</code></a>
-  ///       </td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;All remaining&lt;/td&gt;
+  /// &lt;td&gt;
+  /// &lt;a
+  /// href="/en-US/docs/Web/HTML/Element/input"&gt;&lt;code&gt;input&lt;/code&gt;&lt;/a&gt;
+  /// or &lt;a
+  /// href="/en-US/docs/Web/HTML/Element/textarea"&gt;&lt;code&gt;textarea&lt;/code&gt;&lt;/a&gt;
+  /// &lt;/td&gt;
+  /// &lt;td&gt;
   /// an empty Array
-  ///       </td>
-  ///     </tr>
-  ///   </tbody>
-  /// </table>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/tbody&gt;
+  /// &lt;/table&gt;
   external JSArray<StaticRange> getTargetRanges();
 
   /// The **`data`** read-only property of the
@@ -910,8 +915,8 @@ extension type KeyboardEvent._(JSObject _) implements UIEvent, JSObject {
 
   /// The [KeyboardEvent] interface's **`key`** read-only property returns the
   /// value of the key pressed by the user, taking into consideration the state
-  /// of modifier keys such as <kbd>Shift</kbd> as well as the keyboard locale
-  /// and layout.
+  /// of modifier keys such as &lt;kbd&gt;Shift&lt;/kbd&gt; as well as the
+  /// keyboard locale and layout.
   external String get key;
 
   /// The `KeyboardEvent.code` property represents a physical key on the
@@ -935,12 +940,13 @@ extension type KeyboardEvent._(JSObject _) implements UIEvent, JSObject {
   /// that's printed on the key or that's generated by the computer when the key
   /// is pressed.
   ///
-  /// For example, the `code` returned is `"KeyQ"` for the <kbd>Q</kbd> key on a
-  /// QWERTY layout keyboard, but the same `code` value also represents the
-  /// <kbd>'</kbd> key on Dvorak keyboards and the <kbd>A</kbd> key on AZERTY
-  /// keyboards. That makes it impossible to use the value of `code` to
-  /// determine what the name of the key is to users if they're not using an
-  /// anticipated keyboard layout.
+  /// For example, the `code` returned is `"KeyQ"` for the
+  /// &lt;kbd&gt;Q&lt;/kbd&gt; key on a QWERTY layout keyboard, but the same
+  /// `code` value also represents the &lt;kbd&gt;'&lt;/kbd&gt; key on Dvorak
+  /// keyboards and the &lt;kbd&gt;A&lt;/kbd&gt; key on AZERTY keyboards. That
+  /// makes it impossible to use the value of `code` to determine what the name
+  /// of the key is to users if they're not using an anticipated keyboard
+  /// layout.
   ///
   /// To determine what character corresponds with the key event, use the
   /// [KeyboardEvent.key] property instead.
@@ -953,134 +959,148 @@ extension type KeyboardEvent._(JSObject _) implements UIEvent, JSObject {
   ///
   /// Possible values are:
   ///
-  /// <table class="standard-table">
-  ///   <thead>
-  ///     <tr>
-  ///       <th>Constant</th>
-  ///       <th>Value</th>
-  ///       <th>Description</th>
-  ///     </tr>
-  ///   </thead>
-  ///   <tbody>
-  ///     <tr>
-  ///       <td><code>DOM_KEY_LOCATION_STANDARD</code></td>
-  ///       <td>0</td>
-  ///       <td>
+  /// &lt;table class="standard-table"&gt;
+  /// &lt;thead&gt;
+  /// &lt;tr&gt;
+  /// &lt;th&gt;Constant&lt;/th&gt;
+  /// &lt;th&gt;Value&lt;/th&gt;
+  /// &lt;th&gt;Description&lt;/th&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/thead&gt;
+  /// &lt;tbody&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;&lt;code&gt;DOM_KEY_LOCATION_STANDARD&lt;/code&gt;&lt;/td&gt;
+  /// &lt;td&gt;0&lt;/td&gt;
+  /// &lt;td&gt;
   /// The key has only one version, or can't be distinguished between the left
   /// and right versions of the key, and was not pressed on the numeric keypad
   /// or a key that is considered to be part of the keypad.
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td><code>DOM_KEY_LOCATION_LEFT</code></td>
-  ///       <td>1</td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;&lt;code&gt;DOM_KEY_LOCATION_LEFT&lt;/code&gt;&lt;/td&gt;
+  /// &lt;td&gt;1&lt;/td&gt;
+  /// &lt;td&gt;
   /// The key was the left-hand version of the key; for example, the left-hand
-  ///         <kbd>Control</kbd> key was pressed on a standard 101 key US keyboard.
+  /// &lt;kbd&gt;Control&lt;/kbd&gt; key was pressed on a standard 101 key US
+  /// keyboard.
   /// This value is only used for keys that have more than one possible
   /// location on the keyboard.
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td><code>DOM_KEY_LOCATION_RIGHT</code></td>
-  ///       <td>2</td>
-  ///       <td>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;&lt;code&gt;DOM_KEY_LOCATION_RIGHT&lt;/code&gt;&lt;/td&gt;
+  /// &lt;td&gt;2&lt;/td&gt;
+  /// &lt;td&gt;
   /// The key was the right-hand version of the key; for example, the
-  /// right-hand <kbd>Control</kbd> key is pressed on a standard 101 key US
+  /// right-hand &lt;kbd&gt;Control&lt;/kbd&gt; key is pressed on a standard 101
+  /// key US
   /// keyboard. This value is only used for keys that have more than one
   /// possible location on the keyboard.
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td><code>DOM_KEY_LOCATION_NUMPAD</code></td>
-  ///       <td>3</td>
-  ///       <td>
-  ///         <p>
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;&lt;code&gt;DOM_KEY_LOCATION_NUMPAD&lt;/code&gt;&lt;/td&gt;
+  /// &lt;td&gt;3&lt;/td&gt;
+  /// &lt;td&gt;
+  /// &lt;p&gt;
   /// The key was on the numeric keypad, or has a virtual key code that
   /// corresponds to the numeric keypad.
-  ///         </p>
-  ///         <div class="note">
-  ///           <p>
-  ///             <strong>Note:</strong> When <kbd>NumLock</kbd> is locked, Firefox
-  /// always returns <code>DOM_KEY_LOCATION_NUMPAD</code> for the keys on
-  /// the numeric pad. Otherwise, when <kbd>NumLock</kbd> is unlocked and
+  /// &lt;/p&gt;
+  /// &lt;div class="note"&gt;
+  /// &lt;p&gt;
+  /// &lt;strong&gt;Note:&lt;/strong&gt; When &lt;kbd&gt;NumLock&lt;/kbd&gt; is
+  /// locked, Firefox
+  /// always returns &lt;code&gt;DOM_KEY_LOCATION_NUMPAD&lt;/code&gt; for the
+  /// keys on
+  /// the numeric pad. Otherwise, when &lt;kbd&gt;NumLock&lt;/kbd&gt; is
+  /// unlocked and
   /// the keyboard actually has a numeric keypad, Firefox always returns
-  ///             <code>DOM_KEY_LOCATION_NUMPAD</code> too. On the other hand, if the
+  /// &lt;code&gt;DOM_KEY_LOCATION_NUMPAD&lt;/code&gt; too. On the other hand,
+  /// if the
   /// keyboard doesn't have a keypad, such as on a notebook computer, some
   /// keys become Numpad only when NumLock is locked. When such keys fires
   /// key events, the location attribute value depends on the key. That
-  /// is, it must not be <code>DOM_KEY_LOCATION_NUMPAD</code>.
-  ///           </p>
-  ///         </div>
-  ///         <div class="note">
-  ///           <p>
-  ///             <strong>Note:</strong> <kbd>NumLock</kbd> key's key events indicate
-  ///             <code>DOM_KEY_LOCATION_STANDARD</code> both on Firefox and Internet
+  /// is, it must not be &lt;code&gt;DOM_KEY_LOCATION_NUMPAD&lt;/code&gt;.
+  /// &lt;/p&gt;
+  /// &lt;/div&gt;
+  /// &lt;div class="note"&gt;
+  /// &lt;p&gt;
+  /// &lt;strong&gt;Note:&lt;/strong&gt; &lt;kbd&gt;NumLock&lt;/kbd&gt; key's
+  /// key events indicate
+  /// &lt;code&gt;DOM_KEY_LOCATION_STANDARD&lt;/code&gt; both on Firefox and
+  /// Internet
   /// Explorer.
-  ///           </p>
-  ///         </div>
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>
-  ///         <code>DOM_KEY_LOCATION_MOBILE</code>
-  ///       </td>
-  ///       <td>4</td>
-  ///       <td>
-  ///         <p>
+  /// &lt;/p&gt;
+  /// &lt;/div&gt;
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;
+  /// &lt;code&gt;DOM_KEY_LOCATION_MOBILE&lt;/code&gt;
+  /// &lt;/td&gt;
+  /// &lt;td&gt;4&lt;/td&gt;
+  /// &lt;td&gt;
+  /// &lt;p&gt;
   /// The key was on a mobile device; this can be on either a physical
   /// keypad or a virtual keyboard.
-  ///         </p>
-  ///       </td>
-  ///     </tr>
-  ///     <tr>
-  ///       <td>
-  ///         <code>DOM_KEY_LOCATION_JOYSTICK</code>
-  ///       </td>
-  ///       <td>5</td>
-  ///       <td>
-  ///         <p>
+  /// &lt;/p&gt;
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;tr&gt;
+  /// &lt;td&gt;
+  /// &lt;code&gt;DOM_KEY_LOCATION_JOYSTICK&lt;/code&gt;
+  /// &lt;/td&gt;
+  /// &lt;td&gt;5&lt;/td&gt;
+  /// &lt;td&gt;
+  /// &lt;p&gt;
   /// The key was a button on a game controller or a joystick on a mobile
   /// device.
-  ///         </p>
-  ///       </td>
-  ///     </tr>
-  ///   </tbody>
-  /// </table>
+  /// &lt;/p&gt;
+  /// &lt;/td&gt;
+  /// &lt;/tr&gt;
+  /// &lt;/tbody&gt;
+  /// &lt;/table&gt;
   external int get location;
 
   /// The **`KeyboardEvent.ctrlKey`** read-only property returns a
-  /// boolean value that indicates if the <kbd>control</kbd> key was pressed
+  /// boolean value that indicates if the &lt;kbd&gt;control&lt;/kbd&gt; key was
+  /// pressed
   /// (`true`) or not (`false`) when the event occurred.
   external bool get ctrlKey;
 
   /// The **`KeyboardEvent.shiftKey`** read-only property is a
-  /// boolean value that indicates if the <kbd>shift</kbd> key was pressed
+  /// boolean value that indicates if the &lt;kbd&gt;shift&lt;/kbd&gt; key was
+  /// pressed
   /// (`true`) or not (`false`) when the event occurred.
   ///
   /// The pressing of the shift key may change the [KeyboardEvent.key] of the
-  /// event too. For example, pressing <kbd>B</kbd> generates `key: "b"`, while
-  /// simultaneously pressing <kbd>Shift</kbd> generates `key: "B"`.
+  /// event too. For example, pressing &lt;kbd&gt;B&lt;/kbd&gt; generates `key:
+  /// "b"`, while simultaneously pressing &lt;kbd&gt;Shift&lt;/kbd&gt; generates
+  /// `key: "B"`.
   external bool get shiftKey;
 
   /// The **`KeyboardEvent.altKey`** read-only property is a
-  /// boolean value that indicates if the <kbd>alt</kbd> key (<kbd>Option</kbd>
-  /// or <kbd>⌥</kbd> on macOS) was pressed (`true`) or not (`false`) when
+  /// boolean value that indicates if the &lt;kbd&gt;alt&lt;/kbd&gt; key
+  /// (&lt;kbd&gt;Option&lt;/kbd&gt; or &lt;kbd&gt;⌥&lt;/kbd&gt; on macOS) was
+  /// pressed (`true`) or not (`false`) when
   /// the event occurred.
   external bool get altKey;
 
   /// The **`KeyboardEvent.metaKey`** read-only property returning a
-  /// boolean value that indicates if the <kbd>Meta</kbd> key was pressed
+  /// boolean value that indicates if the &lt;kbd&gt;Meta&lt;/kbd&gt; key was
+  /// pressed
   /// (`true`) or not (`false`) when the event occurred. Some operating
   /// systems may intercept the key so it is never detected.
   ///
   /// > [!NOTE]
-  /// > On Macintosh keyboards, this is the <kbd>⌘ Command</kbd> key.
+  /// > On Macintosh keyboards, this is the &lt;kbd&gt;⌘ Command&lt;/kbd&gt;
+  /// > key.
   ///
   /// > [!NOTE]
-  /// > Before Firefox 118, the <kbd>⊞ Windows</kbd> key was handled
+  /// > Before Firefox 118, the &lt;kbd&gt;⊞ Windows&lt;/kbd&gt; key was handled
   /// > as an "OS" key rather than the "Meta" key. `KeyboardEvent.metaKey` was
-  /// > `false` when the <kbd>⊞ Windows</kbd> key was pressed.
+  /// > `false` when the &lt;kbd&gt;⊞ Windows&lt;/kbd&gt; key was pressed.
   external bool get metaKey;
 
   /// The **`repeat`** read-only property of the
@@ -1122,8 +1142,8 @@ extension type KeyboardEvent._(JSObject _) implements UIEvent, JSObject {
   /// > Web developers shouldn't use the `keyCode` attribute for printable
   /// > characters when handling `keydown` and `keyup` events. As described
   /// > above, the `keyCode` attribute is not useful for printable characters,
-  /// > especially those input with the <kbd>Shift</kbd> or <kbd>Alt</kbd> key
-  /// > pressed.
+  /// > especially those input with the &lt;kbd&gt;Shift&lt;/kbd&gt; or
+  /// > &lt;kbd&gt;Alt&lt;/kbd&gt; key pressed.
   external int get keyCode;
 }
 extension type KeyboardEventInit._(JSObject _)

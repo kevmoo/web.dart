@@ -309,36 +309,39 @@ extension type TouchEvent._(JSObject _) implements UIEvent, JSObject {
   external TouchList get changedTouches;
 
   /// The read-only **`altKey`** property of the [TouchEvent] interface returns
-  /// a boolean value indicating whether or not the <kbd>alt</kbd> (Alternate)
-  /// key is enabled when the touch event is created. If the <kbd>alt</kbd> key
-  /// is enabled, the attribute's value is `true`. Otherwise, it is `false`.
+  /// a boolean value indicating whether or not the &lt;kbd&gt;alt&lt;/kbd&gt;
+  /// (Alternate) key is enabled when the touch event is created. If the
+  /// &lt;kbd&gt;alt&lt;/kbd&gt; key is enabled, the attribute's value is
+  /// `true`. Otherwise, it is `false`.
   ///
   /// This property is .
   external bool get altKey;
 
   /// The read-only **`metaKey`** property of the [TouchEvent] interface returns
-  /// a boolean value indicating whether or not the <kbd>Meta</kbd> key is
-  /// enabled when the touch event is created. If this key is enabled, the
-  /// attribute's value is `true`. Otherwise, it is `false`.
+  /// a boolean value indicating whether or not the &lt;kbd&gt;Meta&lt;/kbd&gt;
+  /// key is enabled when the touch event is created. If this key is enabled,
+  /// the attribute's value is `true`. Otherwise, it is `false`.
   ///
   /// This property is .
   ///
   /// > [!NOTE]
-  /// > On Macintosh keyboards, this is the <kbd>⌘ Command</kbd> key. On Windows
-  /// > keyboards, this is the Windows key (<kbd>⊞</kbd>).
+  /// > On Macintosh keyboards, this is the &lt;kbd&gt;⌘ Command&lt;/kbd&gt;
+  /// > key. On Windows keyboards, this is the Windows key
+  /// > (&lt;kbd&gt;⊞&lt;/kbd&gt;).
   external bool get metaKey;
 
   /// The read-only **`ctrlKey`** property of the [TouchEvent] interface returns
-  /// a boolean value indicating whether the <kbd>control</kbd> (Control) key is
-  /// enabled when the touch event is created. If this key is enabled, the
-  /// attribute's value is `true`. Otherwise, it is `false`.
+  /// a boolean value indicating whether the &lt;kbd&gt;control&lt;/kbd&gt;
+  /// (Control) key is enabled when the touch event is created. If this key is
+  /// enabled, the attribute's value is `true`. Otherwise, it is `false`.
   ///
   /// This property is .
   external bool get ctrlKey;
 
   /// The read-only **`shiftKey`** property of the `TouchEvent` interface
-  /// returns a boolean value indicating whether or not the <kbd>shift</kbd> key
-  /// is enabled when the touch event is created. If this key is enabled, the
-  /// attribute's value is `true`. Otherwise, it is `false`.
+  /// returns a boolean value indicating whether or not the
+  /// &lt;kbd&gt;shift&lt;/kbd&gt; key is enabled when the touch event is
+  /// created. If this key is enabled, the attribute's value is `true`.
+  /// Otherwise, it is `false`.
   external bool get shiftKey;
 }

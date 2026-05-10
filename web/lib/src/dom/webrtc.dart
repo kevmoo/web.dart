@@ -1190,8 +1190,8 @@ extension type RTCRtpSender._(JSObject _) implements JSObject {
   ///
   /// ### Value
   ///
-  /// A [RTCRtpScriptTransform]<!-- or [SFrameTransform] -->, or `null` if the
-  /// sender has no associated transform stream.
+  /// A [RTCRtpScriptTransform]&lt;!-- or [SFrameTransform] --&gt;, or `null` if
+  /// the sender has no associated transform stream.
   external RTCRtpTransform? get transform;
   external set transform(RTCRtpTransform? value);
 
@@ -1440,8 +1440,8 @@ extension type RTCRtpReceiver._(JSObject _) implements JSObject {
   ///
   /// ### Value
   ///
-  /// A [RTCRtpScriptTransform]<!-- or [SFrameTransform] -->, or `null` if the
-  /// receiver has no associated transform stream.
+  /// A [RTCRtpScriptTransform]&lt;!-- or [SFrameTransform] --&gt;, or `null` if
+  /// the receiver has no associated transform stream.
   external RTCRtpTransform? get transform;
   external set transform(RTCRtpTransform? value);
 }

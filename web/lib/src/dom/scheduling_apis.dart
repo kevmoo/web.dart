@@ -110,7 +110,7 @@ extension type TaskPriorityChangeEvent._(JSObject _)
   ///
   /// This is the value that was set in the
   /// [`TaskPriorityChangeEvent` constructor](https://developer.mozilla.org/en-US/docs/Web/API/TaskPriorityChangeEvent/TaskPriorityChangeEvent)
-  /// argument `options.previous`. <!-- link? -->
+  /// argument `options.previous`. &lt;!-- link? --&gt;
   ///
   /// The new priority of the task can be read from `event.target.priority`.
   external TaskPriority get previousPriority;

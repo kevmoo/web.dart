@@ -150,7 +150,8 @@ extension type WebTransport._(JSObject _) implements JSObject {
   /// The method returns a `Promise` that resolves to a [WritableStream] object,
   /// which can be used to reliably write data to the server.
   ///
-  /// <!-- Note, returns a `WebTransportSendStream` according to spec, but not yet implemented -->
+  /// &lt;!-- Note, returns a `WebTransportSendStream` according to spec, but
+  /// not yet implemented --&gt;
   ///
   /// "Reliable" means that transmission and order of data are guaranteed. This
   /// provides slower delivery (albeit faster than with WebSockets) than

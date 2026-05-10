@@ -127,14 +127,14 @@ extension type CryptoKey._(JSObject _) implements JSObject {
 /// > [!WARNING]
 /// > This API provides a number of low-level cryptographic primitives. It's
 /// > very easy to misuse them, and the pitfalls involved can be very subtle.
-/// >
+/// &gt;
 /// > Even assuming you use the basic cryptographic functions correctly, secure
 /// > key management and overall security system design are extremely hard to
 /// > get right, and are generally the domain of specialist security experts.
-/// >
+/// &gt;
 /// > Errors in security system design and implementation can make the security
 /// > of the system completely ineffective.
-/// >
+/// &gt;
 /// > Please learn and experiment, but don't guarantee or imply the security of
 /// > your work before an individual knowledgeable in this subject matter
 /// > thoroughly reviews it. The [Crypto 101 Course](https://www.crypto101.io/)

@@ -240,7 +240,7 @@ extension type FederatedCredentialRequestOptions._(JSObject _)
 /// > (FedCM)](https://developer.mozilla.org/en-US/docs/Web/API/FedCM_API)
 /// > supersedes the [FederatedCredential] interface in favor of the
 /// > [IdentityCredential] interface.
-/// >
+/// &gt;
 /// > The `FederatedCredentialInit` dictionary is not used when working with the
 /// > `IdentityCredential` interface.
 ///
