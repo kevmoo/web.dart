@@ -51,6 +51,7 @@ class TransformResult {
             return switch (d) {
               final Declaration n => n.emit(options),
               final Type _ => null,
+              _ => null,
             };
           })
           .nonNulls
