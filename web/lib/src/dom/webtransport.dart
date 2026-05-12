@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -150,8 +151,7 @@ extension type WebTransport._(JSObject _) implements JSObject {
   /// The method returns a `Promise` that resolves to a [WritableStream] object,
   /// which can be used to reliably write data to the server.
   ///
-  /// &lt;!-- Note, returns a `WebTransportSendStream` according to spec, but
-  /// not yet implemented --&gt;
+  /// <!-- Note, returns a `WebTransportSendStream` according to spec, but not yet implemented -->
   ///
   /// "Reliable" means that transmission and order of data are guaranteed. This
   /// provides slower delivery (albeit faster than with WebSockets) than

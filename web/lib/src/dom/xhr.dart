@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 /// @docImport 'fileapi.dart';
 @JS()
@@ -347,57 +348,56 @@ extension type XMLHttpRequest._(JSObject _)
   /// The following events can be triggered on an upload object and used to
   /// monitor the upload:
   ///
-  /// &lt;table class="no-markdown"&gt;
-  /// &lt;thead&gt;
-  /// &lt;tr&gt;
-  /// &lt;th&gt;Event&lt;/th&gt;
-  /// &lt;th&gt;Description&lt;/th&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/thead&gt;
-  /// &lt;tbody&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;[XMLHttpRequestUpload.loadstart_event]&lt;/td&gt;
-  /// &lt;td&gt;The upload has begun.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;[XMLHttpRequestUpload.progress_event]&lt;/td&gt;
-  /// &lt;td&gt;
+  /// <table class="no-markdown">
+  ///   <thead>
+  ///     <tr>
+  ///       <th>Event</th>
+  ///       <th>Description</th>
+  ///     </tr>
+  ///   </thead>
+  ///   <tbody>
+  ///     <tr>
+  ///       <td>[XMLHttpRequestUpload.loadstart_event]</td>
+  ///       <td>The upload has begun.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>[XMLHttpRequestUpload.progress_event]</td>
+  ///       <td>
   /// Periodically delivered to indicate the amount of progress made so far.
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;[XMLHttpRequestUpload.abort_event]&lt;/td&gt;
-  /// &lt;td&gt;The upload operation was aborted.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;[XMLHttpRequestUpload.error_event]&lt;/td&gt;
-  /// &lt;td&gt;The upload failed due to an error.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;[XMLHttpRequestUpload.load_event]&lt;/td&gt;
-  /// &lt;td&gt;The upload completed successfully.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;[XMLHttpRequestUpload.timeout_event]&lt;/td&gt;
-  /// &lt;td&gt;
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>[XMLHttpRequestUpload.abort_event]</td>
+  ///       <td>The upload operation was aborted.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>[XMLHttpRequestUpload.error_event]</td>
+  ///       <td>The upload failed due to an error.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>[XMLHttpRequestUpload.load_event]</td>
+  ///       <td>The upload completed successfully.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>[XMLHttpRequestUpload.timeout_event]</td>
+  ///       <td>
   /// The upload timed out because a reply did not arrive within the time
   /// interval specified by the
   /// [XMLHttpRequest.timeout].
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;[XMLHttpRequestUpload.loadend_event]&lt;/td&gt;
-  /// &lt;td&gt;
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>[XMLHttpRequestUpload.loadend_event]</td>
+  ///       <td>
   /// The upload finished. This event does not differentiate between success
   /// or failure, and is sent at the end of the upload regardless of the
-  /// outcome. Prior to this event, one of &lt;code&gt;load&lt;/code&gt;,
-  /// &lt;code&gt;error&lt;/code&gt;, &lt;code&gt;abort&lt;/code&gt;, or
-  /// &lt;code&gt;timeout&lt;/code&gt; will
+  /// outcome. Prior to this event, one of <code>load</code>,
+  ///         <code>error</code>, <code>abort</code>, or <code>timeout</code> will
   /// already have been delivered to indicate why the upload ended.
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/tbody&gt;
-  /// &lt;/table&gt;
+  ///       </td>
+  ///     </tr>
+  ///   </tbody>
+  /// </table>
   external XMLHttpRequestUpload get upload;
 
   /// @AvailableInWorkers("window_and_worker_except_service")

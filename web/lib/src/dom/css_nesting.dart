@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -26,9 +27,9 @@ import 'cssom.dart';
 /// to mirror the structure of CSS documents with nested CSS rules, and ensure
 /// that rules are parsed and evaluated in the order that they are declared.
 ///
-/// > [!NOTE] &gt; [Browser versions](#browser_compatibility) with
-/// > implementations that do not support this interface may parse nested rules
-/// > in the wrong order.
+/// > [!NOTE] > [Browser versions](#browser_compatibility) with implementations
+/// > that do not support this interface may parse nested rules in the wrong
+/// > order.
 ///
 /// ---
 ///

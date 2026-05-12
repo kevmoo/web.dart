@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types, constant_identifier_names
 // ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: lines_longer_than_80_chars, non_constant_identifier_names
-// ignore_for_file: unnecessary_parenthesis
+// ignore_for_file: unintended_html_in_doc_comment, unnecessary_parenthesis
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:js_interop' as _i1;
@@ -4107,7 +4107,7 @@ extension type DocumentSemanticTokensProvider._(_i1.JSObject _)
   ///  - at index `5*i`   - `deltaLine`: token line number, relative to the previous token
   ///  - at index `5*i+1` - `deltaStart`: token start character, relative to the previous token (relative to 0 or the previous token's start if they are on the same line)
   ///  - at index `5*i+2` - `length`: the length of the token. A token cannot be multiline.
-  ///  - at index `5*i+3` - `tokenType`: will be looked up in `SemanticTokensLegend.tokenTypes`. We currently ask that `tokenType` &lt; 65536.
+  ///  - at index `5*i+3` - `tokenType`: will be looked up in `SemanticTokensLegend.tokenTypes`. We currently ask that `tokenType` < 65536.
   ///  - at index `5*i+4` - `tokenModifiers`: each set bit will be looked up in `SemanticTokensLegend.tokenModifiers`
   ///
   /// ---
@@ -13770,7 +13770,7 @@ extension type workspace._(_i1.JSObject _) implements _i1.JSObject {
   /// appear in the resulting text
   /// in the order the 'inserts' were made, unless that are interleaved with
   /// resource edits. Invalid sequences
-  /// like 'delete file a' -&gt; 'insert text in file a' cause failure of the
+  /// like 'delete file a' -> 'insert text in file a' cause failure of the
   /// operation.
   ///
   /// When applying a workspace edit that consists only of text edits an
@@ -18107,9 +18107,9 @@ extension type authentication._(_i1.JSObject _) implements _i1.JSObject {
 /// Namespace for localization-related functionality in the extension API. To
 /// use this properly,
 /// you must have `l10n` defined in your extension manifest and have
-/// bundle.l10n.&lt;language&gt;.json files.
-/// For more information on how to generate bundle.l10n.&lt;language&gt;.json
-/// files, check out the
+/// bundle.l10n.<language>.json files.
+/// For more information on how to generate bundle.l10n.<language>.json files,
+/// check out the
 /// [vscode-l10n repo](https://github.com/microsoft/vscode-l10n).
 ///
 /// Note: Built-in extensions (for example, Git, TypeScript Language Features,

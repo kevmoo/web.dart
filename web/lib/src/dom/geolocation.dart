@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -211,39 +212,38 @@ extension type GeolocationPositionError._(JSObject _) implements JSObject {
   ///
   /// The following values are possible:
   ///
-  /// &lt;table class="no-markdown"&gt;
-  /// &lt;thead&gt;
-  /// &lt;tr&gt;
-  /// &lt;th scope="col"&gt;Value&lt;/th&gt;
-  /// &lt;th scope="col"&gt;Associated constant&lt;/th&gt;
-  /// &lt;th scope="col"&gt;Description&lt;/th&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/thead&gt;
-  /// &lt;tbody&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;PERMISSION_DENIED&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;
+  /// <table class="no-markdown">
+  ///   <thead>
+  ///     <tr>
+  ///       <th scope="col">Value</th>
+  ///       <th scope="col">Associated constant</th>
+  ///       <th scope="col">Description</th>
+  ///     </tr>
+  ///   </thead>
+  ///   <tbody>
+  ///     <tr>
+  ///       <td><code>1</code></td>
+  ///       <td><code>PERMISSION_DENIED</code></td>
+  ///       <td>
   /// The acquisition of the geolocation information failed because the page
   /// didn't have the permission to do it.
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;POSITION_UNAVAILABLE&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>2</code></td>
+  ///       <td><code>POSITION_UNAVAILABLE</code></td>
+  ///       <td>
   /// The acquisition of the geolocation failed because one or several internal
   /// sources of position returned an internal error.
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;3&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;TIMEOUT&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Geolocation information was not obtained in the allowed
-  /// time.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/tbody&gt;
-  /// &lt;/table&gt;
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>3</code></td>
+  ///       <td><code>TIMEOUT</code></td>
+  ///       <td>Geolocation information was not obtained in the allowed time.</td>
+  ///     </tr>
+  ///   </tbody>
+  /// </table>
   external int get code;
 
   /// The **`message`** read-only property of the [GeolocationPositionError]

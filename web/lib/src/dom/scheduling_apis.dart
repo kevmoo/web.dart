@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -110,7 +111,7 @@ extension type TaskPriorityChangeEvent._(JSObject _)
   ///
   /// This is the value that was set in the
   /// [`TaskPriorityChangeEvent` constructor](https://developer.mozilla.org/en-US/docs/Web/API/TaskPriorityChangeEvent/TaskPriorityChangeEvent)
-  /// argument `options.previous`. &lt;!-- link? --&gt;
+  /// argument `options.previous`. <!-- link? -->
   ///
   /// The new priority of the task can be read from `event.target.priority`.
   external TaskPriority get previousPriority;

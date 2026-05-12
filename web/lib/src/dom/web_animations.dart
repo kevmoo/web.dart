@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -307,7 +308,7 @@ extension type AnimationEffect._(JSObject _) implements JSObject {
   /// > Several of the timing properties returned by `getTiming()` may take on
   /// > the placeholder value `"auto"`. To obtain resolved values for use in
   /// > timing computations, instead use [AnimationEffect.getComputedTiming].
-  /// &gt;
+  /// >
   /// > In the future, `"auto"` or similar values might be added to the types of
   /// > more timing properties, and new types of [AnimationEffect] might resolve
   /// > `"auto"` to different values.

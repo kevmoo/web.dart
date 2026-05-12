@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -311,7 +312,7 @@ extension type SVGElement._(JSObject _) implements Element, JSObject {
   /// > [!NOTE]
   /// > CSS property names are converted to JavaScript identifier with these
   /// > rules:
-  /// &gt;
+  /// >
   /// > - If the property is made of one word, it remains as it is: `height`
   /// > stays as is (in lowercase).
   /// > - If the property is made of several words, separated by dashes, the
@@ -319,7 +320,7 @@ extension type SVGElement._(JSObject _) implements Element, JSObject {
   /// > becomes `backgroundAttachment`.
   /// > - The property `float`, being a reserved JavaScript keyword, is
   /// > converted to `cssFloat`.
-  /// &gt;
+  /// >
   /// > The `style` property has the same priority in the CSS cascade as an
   /// > inline style declaration set via the `style` attribute.
   external CSSStyleDeclaration get style;
@@ -475,7 +476,7 @@ extension type SVGNumber._(JSObject _) implements JSObject {
 }
 
 /// The **`SVGLength`** interface correspond to the
-/// [\&lt;length&gt;](/en-US/docs/Web/SVG/Content_type#length) basic data type.
+/// [\<length>](/en-US/docs/Web/SVG/Content_type#length) basic data type.
 ///
 /// An `SVGLength` object can be designated as read only, which means that
 /// attempts to modify the object will result in an exception being thrown.
@@ -529,8 +530,8 @@ extension type SVGLength._(JSObject _) implements JSObject {
   external int get unitType;
 
   /// The `value` property of the [SVGLength] interface represents the floating
-  /// point value of the
-  /// [\&lt;length&gt;](/en-US/docs/Web/SVG/Content_type#length) in user units.
+  /// point value of the [\<length>](/en-US/docs/Web/SVG/Content_type#length) in
+  /// user units.
   ///
   /// Setting this attribute will cause [SVGLength.valueInSpecifiedUnits] and
   /// [SVGLength.valueAsString] to be updated automatically to reflect this
@@ -549,8 +550,8 @@ extension type SVGLength._(JSObject _) implements JSObject {
   external set valueInSpecifiedUnits(num value);
 
   /// The `valueAsString` property of the [SVGLength] interface represents the
-  /// [\&lt;length&gt;](/en-US/docs/Web/SVG/Content_type#length)'s value as a
-  /// strin\*, in the units expressed by [SVGLength.unitType].
+  /// [\<length>](/en-US/docs/Web/SVG/Content_type#length)'s value as a strin\*,
+  /// in the units expressed by [SVGLength.unitType].
   ///
   /// Setting this attribute will cause [SVGLength.value],
   /// [SVGLength.valueInSpecifiedUnits], and [SVGLength.unitType] to be updated
@@ -987,8 +988,7 @@ extension type SVGAnimatedNumber._(JSObject _) implements JSObject {
 }
 
 /// The **`SVGAnimatedLength`** interface represents attributes of type
-/// [\&lt;length&gt;](/en-US/docs/Web/SVG/Content_type#length) which can be
-/// animated.
+/// [\<length>](/en-US/docs/Web/SVG/Content_type#length) which can be animated.
 ///
 /// ---
 ///
@@ -1064,40 +1064,40 @@ extension type SVGAnimatedString._(JSObject _) implements JSObject {
 ///
 /// ### Interface overview
 ///
-/// &lt;table class="no-markdown"&gt;
-/// &lt;tbody&gt;
-/// &lt;tr&gt;
-/// &lt;th scope="row"&gt;Also implement&lt;/th&gt;
-/// &lt;td&gt;&lt;em&gt;None&lt;/em&gt;&lt;/td&gt;
-/// &lt;/tr&gt;
-/// &lt;tr&gt;
-/// &lt;th scope="row"&gt;Methods&lt;/th&gt;
-/// &lt;td&gt;&lt;em&gt;None&lt;/em&gt;&lt;/td&gt;
-/// &lt;/tr&gt;
-/// &lt;tr&gt;
-/// &lt;th scope="row"&gt;Properties&lt;/th&gt;
-/// &lt;td&gt;
-/// &lt;ul&gt;
-/// &lt;li&gt;
-/// readonly [SVGRect] &lt;code&gt;baseVal&lt;/code&gt;
-/// &lt;/li&gt;
-/// &lt;li&gt;
-/// readonly [SVGRect] &lt;code&gt;animVal&lt;/code&gt;
-/// &lt;/li&gt;
-/// &lt;/ul&gt;
-/// &lt;/td&gt;
-/// &lt;/tr&gt;
-/// &lt;tr&gt;
-/// &lt;th scope="row"&gt;Normative document&lt;/th&gt;
-/// &lt;td&gt;
-/// &lt;a
+/// <table class="no-markdown">
+///   <tbody>
+///     <tr>
+///       <th scope="row">Also implement</th>
+///       <td><em>None</em></td>
+///     </tr>
+///     <tr>
+///       <th scope="row">Methods</th>
+///       <td><em>None</em></td>
+///     </tr>
+///     <tr>
+///       <th scope="row">Properties</th>
+///       <td>
+///         <ul>
+///           <li>
+/// readonly [SVGRect] <code>baseVal</code>
+///           </li>
+///           <li>
+/// readonly [SVGRect] <code>animVal</code>
+///           </li>
+///         </ul>
+///       </td>
+///     </tr>
+///     <tr>
+///       <th scope="row">Normative document</th>
+///       <td>
+///         <a
 /// href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedRect"
-/// &gt;SVG 1.1 (2nd Edition)&lt;/a
-/// &gt;
-/// &lt;/td&gt;
-/// &lt;/tr&gt;
-/// &lt;/tbody&gt;
-/// &lt;/table&gt;
+/// >SVG 1.1 (2nd Edition)</a
+/// >
+///       </td>
+///     </tr>
+///   </tbody>
+/// </table>
 ///
 /// ---
 ///
@@ -2124,7 +2124,7 @@ extension type SVGCircleElement._(JSObject _)
 
   /// The **`cx`** read-only property of the [SVGCircleElement] interface
   /// reflects the `cx` attribute of a  element and by that defines the
-  /// x-coordinate of the circle's center.&lt;
+  /// x-coordinate of the circle's center.<
   ///
   /// If unspecified, the effect is as if the value is set to `0`.
   external SVGAnimatedLength get cx;

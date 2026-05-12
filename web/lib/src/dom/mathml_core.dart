@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -252,7 +253,7 @@ extension type MathMLElement._(JSObject _) implements Element, JSObject {
   /// > [!NOTE]
   /// > CSS property names are converted to JavaScript identifier with these
   /// > rules:
-  /// &gt;
+  /// >
   /// > - If the property is made of one word, it remains as it is: `height`
   /// > stays as is (in lowercase).
   /// > - If the property is made of several words, separated by dashes, the
@@ -260,7 +261,7 @@ extension type MathMLElement._(JSObject _) implements Element, JSObject {
   /// > becomes `backgroundAttachment`.
   /// > - The property `float`, being a reserved JavaScript keyword, is
   /// > converted to `cssFloat`.
-  /// &gt;
+  /// >
   /// > The `style` property has the same priority in the CSS cascade as an
   /// > inline style declaration set via the `style` attribute.
   external CSSStyleDeclaration get style;

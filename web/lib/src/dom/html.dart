@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 /// @docImport 'svg.dart';
 /// @docImport 'webcodecs.dart';
@@ -637,8 +638,8 @@ extension type HTMLElement._(JSObject _) implements Element, JSObject {
   /// > The `HTMLElement.accessKey` property is seldom used because of its
   /// > multiple conflicts with already present key bindings in browsers. To
   /// > work around this, browsers implement accesskey behavior if the keys are
-  /// > pressed with other "qualifying" keys (such as &lt;kbd&gt;Alt&lt;/kbd&gt;
-  /// > + accesskey).
+  /// > pressed with other "qualifying" keys (such as <kbd>Alt</kbd> +
+  /// > accesskey).
   external String get accessKey;
   external set accessKey(String value);
 
@@ -775,7 +776,7 @@ extension type HTMLElement._(JSObject _) implements Element, JSObject {
   ///
   /// > **Note:** `offsetParent` returns `null` in the following
   /// > situations:
-  /// &gt;
+  /// >
   /// > - The element or any ancestor has the `display` property set to
   /// > `none`.
   /// > - The element has the `position` property set to `fixed`
@@ -879,7 +880,7 @@ extension type HTMLElement._(JSObject _) implements Element, JSObject {
   /// > [!NOTE]
   /// > CSS property names are converted to JavaScript identifier with these
   /// > rules:
-  /// &gt;
+  /// >
   /// > - If the property is made of one word, it remains as it is: `height`
   /// > stays as is (in lowercase). As `float` is a reserved keyword in
   /// > JavaScript, this property name was historically converted to `cssFloat`.
@@ -889,7 +890,7 @@ extension type HTMLElement._(JSObject _) implements Element, JSObject {
   /// > - If the property is made of several words, separated by dashes, the
   /// > dashes are removed and it is converted to : `background-attachment`
   /// > becomes `backgroundAttachment`.
-  /// &gt;
+  /// >
   /// > The `style` property has the same priority in the CSS cascade as an
   /// > inline style declaration set via the `style` attribute.
   external CSSStyleDeclaration get style;
@@ -3397,7 +3398,7 @@ extension type HTMLVideoElement._(JSObject _)
   /// of the video, expressed in CSS pixels.
   /// In simple terms, this is the width of the media in its natural size.
   ///
-  /// See [`HTMLVideoElement.videoHeight` &gt; About intrinsic width and
+  /// See [`HTMLVideoElement.videoHeight` > About intrinsic width and
   /// height](/en-US/docs/Web/API/HTMLVideoElement/videoHeight#about_intrinsic_width_and_height)
   /// for more details.
   external int get videoWidth;
@@ -5118,7 +5119,7 @@ extension type HTMLTableColElement._(JSObject _)
   /// > This property is deprecated, and CSS should be used to align text
   /// > horizontally in a column. Use the CSS  property, which takes precedence,
   /// > to horizontally align text in a column instead.
-  /// &gt;
+  /// >
   /// > As `td` are not children of `col`, you can't set it directly on a `col`
   /// > element, you need to select the cells of the column using a
   /// > `td:nth-last-child(n)` or similar (`n` is the column number, counting
@@ -5133,7 +5134,7 @@ extension type HTMLTableColElement._(JSObject _)
   /// > This property was designed to participate to the ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get ch;
@@ -5146,7 +5147,7 @@ extension type HTMLTableColElement._(JSObject _)
   /// > This property was designed to participate in an ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get chOff;
@@ -5160,7 +5161,7 @@ extension type HTMLTableColElement._(JSObject _)
   /// > This property is deprecated, and CSS should be used to align text
   /// > vertically in a column. Use the CSS  property, which takes precedence,
   /// > to vertically align text in each column cell instead.
-  /// &gt;
+  /// >
   /// > As `td` are not children of `col`, you can't set it directly on a `col`
   /// > element, you need to select the cells of the column using a
   /// > `td:nth-child(n)` or similar (`n` is the column number).
@@ -5232,7 +5233,7 @@ extension type HTMLTableSectionElement._(JSObject _)
   /// > This property was designed to participate to the ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get ch;
@@ -5245,7 +5246,7 @@ extension type HTMLTableSectionElement._(JSObject _)
   /// > This property was designed to participate in an ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get chOff;
@@ -5286,7 +5287,7 @@ extension type HTMLTableRowElement._(JSObject _)
   /// > with [Node.appendChild] as would be the case if
   /// > [Document.createElement] had been used to create the new
   /// > `<td>` element.
-  /// &gt;
+  /// >
   /// > You can not use `insertCell()` to create a new `<th>`
   /// > element though.
   external HTMLTableCellElement insertCell([int index]);
@@ -5337,7 +5338,7 @@ extension type HTMLTableRowElement._(JSObject _)
   /// > This property was designed to participate to the ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get ch;
@@ -5350,7 +5351,7 @@ extension type HTMLTableRowElement._(JSObject _)
   /// > This property was designed to participate in an ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get chOff;
@@ -5478,7 +5479,7 @@ extension type HTMLTableCellElement._(JSObject _)
   /// > This property was designed to participate to the ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get ch;
@@ -5491,7 +5492,7 @@ extension type HTMLTableCellElement._(JSObject _)
   /// > This property was designed to participate in an ability to align table
   /// > cell content on a specific character (typically the decimal point), but
   /// > was never implemented by browsers.
-  /// &gt;
+  /// >
   /// > To achieve such alignment, watch for the support of a string value with
   /// > the  CSS property.
   external String get chOff;
@@ -5813,79 +5814,73 @@ extension type HTMLInputElement._(JSObject _) implements HTMLElement, JSObject {
   /// defaults to the
   /// default value for `step` if not specified.
   ///
-  /// &lt;table class="no-markdown"&gt;
-  /// &lt;thead&gt;
-  /// &lt;tr&gt;
-  /// &lt;th&gt;Input type&lt;/th&gt;
-  /// &lt;th&gt;Default step value&lt;/th&gt;
-  /// &lt;th&gt;Example step declaration&lt;/th&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;`date`&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt; (day)&lt;/td&gt;
-  /// &lt;td&gt;
-  /// 7 day (one week) increments:&lt;br /&gt;
-  /// &lt;code&gt;&#x3C;input type="date" min="2019-12-25"
-  /// step="7"&gt;&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;`month`&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt; (month)&lt;/td&gt;
-  /// &lt;td&gt;
-  /// 12 month (one year) increments:&lt;br /&gt;
-  /// &lt;code&gt;&#x3C;input type="month" min="2019-12"
-  /// step="12"&gt;&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;`week`&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt; (week)&lt;/td&gt;
-  /// &lt;td&gt;
-  /// Two week increments:&lt;br /&gt;
-  /// &lt;code&gt;&#x3C;input type="week" min="2019-W23"
-  /// step="2"&gt;&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;`time`&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;60&lt;/code&gt; (seconds)&lt;/td&gt;
-  /// &lt;td&gt;
-  /// 900 second (15 minute) increments:&lt;br /&gt;
-  /// &lt;code&gt;&#x3C;input type="time" min="09:00"
-  /// step="900"&gt;&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;
-  /// &lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt; (day)&lt;/td&gt;
-  /// &lt;td&gt;
-  /// Same day of the week:&lt;br /&gt;
-  /// &lt;code&gt;&#x3C;input type="datetime-local" min="019-12-25T19:30"
-  /// step="7"&gt;&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;`number`&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;
-  /// 0.1 increments&lt;br /&gt;
-  /// &lt;code&gt;&#x3C;input type="number" min="0" step="0.1"
-  /// max="10"&gt;&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;`range`&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;
-  /// Increments by 2:&lt;br /&gt;
-  /// &lt;code&gt;&#x3C;input type="range" min="0" step="2"
-  /// max="10"&gt;&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/thead&gt;
-  /// &lt;/table&gt;
+  /// <table class="no-markdown">
+  ///   <thead>
+  ///     <tr>
+  ///       <th>Input type</th>
+  ///       <th>Default step value</th>
+  ///       <th>Example step declaration</th>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>`date`</td>
+  ///       <td><code>1</code> (day)</td>
+  ///       <td>
+  /// 7 day (one week) increments:<br />
+  ///         <code>&#x3C;input type="date" min="2019-12-25" step="7"></code>
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>`month`</td>
+  ///       <td><code>1</code> (month)</td>
+  ///       <td>
+  /// 12 month (one year) increments:<br />
+  ///         <code>&#x3C;input type="month" min="2019-12" step="12"></code>
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>`week`</td>
+  ///       <td><code>1</code> (week)</td>
+  ///       <td>
+  /// Two week increments:<br />
+  ///         <code>&#x3C;input type="week" min="2019-W23" step="2"></code>
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>`time`</td>
+  ///       <td><code>60</code> (seconds)</td>
+  ///       <td>
+  /// 900 second (15 minute) increments:<br />
+  ///         <code>&#x3C;input type="time" min="09:00" step="900"></code>
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>
+  ///       </td>
+  ///       <td><code>1</code> (day)</td>
+  ///       <td>
+  /// Same day of the week:<br />
+  ///         <code>&#x3C;input type="datetime-local" min="019-12-25T19:30"
+  /// step="7"></code>
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>`number`</td>
+  ///       <td><code>1</code></td>
+  ///       <td>
+  /// 0.1 increments<br />
+  ///         <code>&#x3C;input type="number" min="0" step="0.1" max="10"></code>
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>`range`</td>
+  ///       <td><code>1</code></td>
+  ///       <td>
+  /// Increments by 2:<br />
+  ///         <code>&#x3C;input type="range" min="0" step="2" max="10"></code>
+  ///       </td>
+  ///     </tr>
+  ///   </thead>
+  /// </table>
   ///
   /// The method, when invoked, changes the form control's value by the value
   /// given in the
@@ -7672,7 +7667,7 @@ extension type HTMLTextAreaElement._(JSObject _)
   external int get selectionEnd;
   external set selectionEnd(int value);
 
-  /// &lt;!--  --&gt;
+  /// <!--  -->
   ///
   /// The **`selectionDirection`** property of the [HTMLTextAreaElement]
   /// interface specifies the current direction of the selection. The possible
@@ -14044,7 +14039,7 @@ extension type Navigator._(JSObject _) implements JSObject {
   /// > older browser: you really have no guarantee that the browser agent is
   /// > indeed the one
   /// > advertised by this property.
-  /// &gt;
+  /// >
   /// > Also keep in mind that users of a browser can change the value of this
   /// > field if they
   /// > want (UA spoofing).
@@ -14151,7 +14146,7 @@ extension type Navigator._(JSObject _) implements JSObject {
   /// > [!NOTE]
   /// > Use [Navigator.pdfViewerEnabled] to determine if inline viewing of PDF
   /// > files is supported. Do not infer it from this property.
-  /// &gt;
+  /// >
   /// > The "five standard plugins" are those that developers have most commonly
   /// > used to feature detect inline PDF viewing.
   /// > Returning these ensures that legacy code can more reliably determine
@@ -15430,7 +15425,7 @@ extension type WorkerNavigator._(JSObject _) implements JSObject {
   /// > older browser: you really have no guarantee that the browser agent is
   /// > indeed the one
   /// > advertised by this property.
-  /// &gt;
+  /// >
   /// > Also keep in mind that users of a browser can change the value of this
   /// > field if they
   /// > want (UA spoofing).
@@ -15994,33 +15989,31 @@ extension type HTMLFontElement._(JSObject _) implements HTMLElement, JSObject {
   /// The format of the string must follow one of the following HTML
   /// microsyntaxes:
   ///
-  /// &lt;table class="no-markdown"&gt;
-  /// &lt;thead&gt;
-  /// &lt;tr&gt;
-  /// &lt;th scope="col"&gt;Microsyntax&lt;/th&gt;
-  /// &lt;th scope="col"&gt;Description&lt;/th&gt;
-  /// &lt;th scope="col"&gt;Examples&lt;/th&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/thead&gt;
-  /// &lt;tbody&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;Valid size number string&lt;/td&gt;
-  /// &lt;td&gt;&lt;em&gt;integer number in the range of
-  /// 1-7&lt;/em&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;6&lt;/code&gt;&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;Relative size string&lt;/td&gt;
-  /// &lt;td&gt;
-  /// &lt;em&gt;+x or -x, where x is a number relative to 3 (the result should
-  /// be in the range of 1-7)&lt;/em&gt;
-  /// &lt;/td&gt;
-  /// &lt;td&gt;
-  /// &lt;code&gt;+2&lt;br /&gt;-1&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/tbody&gt;
-  /// &lt;/table&gt;
+  /// <table class="no-markdown">
+  ///   <thead>
+  ///     <tr>
+  ///       <th scope="col">Microsyntax</th>
+  ///       <th scope="col">Description</th>
+  ///       <th scope="col">Examples</th>
+  ///     </tr>
+  ///   </thead>
+  ///   <tbody>
+  ///     <tr>
+  ///       <td>Valid size number string</td>
+  ///       <td><em>integer number in the range of 1-7</em></td>
+  ///       <td><code>6</code></td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>Relative size string</td>
+  ///       <td>
+  ///         <em>+x or -x, where x is a number relative to 3 (the result should be in the range of 1-7)</em>
+  ///       </td>
+  ///       <td>
+  ///         <code>+2<br />-1</code>
+  ///       </td>
+  ///     </tr>
+  ///   </tbody>
+  /// </table>
   external String get size;
   external set size(String value);
 }

@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -180,8 +181,8 @@ extension type Selection._(JSObject _) implements JSObject {
   /// right to left
   /// (reverse of document order). The focus is where the user ended the
   /// selection. This can
-  /// be visualized by holding the &lt;kbd&gt;Shift&lt;/kbd&gt; key and pressing
-  /// the arrow keys on your
+  /// be visualized by holding the <kbd>Shift</kbd> key and pressing the arrow
+  /// keys on your
   /// keyboard to modify the current selection. The selection's focus moves, but
   /// the
   /// selection's anchor, the other end of the selection, does not move.

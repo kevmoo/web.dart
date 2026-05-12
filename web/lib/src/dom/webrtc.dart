@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -1190,8 +1191,8 @@ extension type RTCRtpSender._(JSObject _) implements JSObject {
   ///
   /// ### Value
   ///
-  /// A [RTCRtpScriptTransform]&lt;!-- or [SFrameTransform] --&gt;, or `null` if
-  /// the sender has no associated transform stream.
+  /// A [RTCRtpScriptTransform]<!-- or [SFrameTransform] -->, or `null` if the
+  /// sender has no associated transform stream.
   external RTCRtpTransform? get transform;
   external set transform(RTCRtpTransform? value);
 
@@ -1440,8 +1441,8 @@ extension type RTCRtpReceiver._(JSObject _) implements JSObject {
   ///
   /// ### Value
   ///
-  /// A [RTCRtpScriptTransform]&lt;!-- or [SFrameTransform] --&gt;, or `null` if
-  /// the receiver has no associated transform stream.
+  /// A [RTCRtpScriptTransform]<!-- or [SFrameTransform] -->, or `null` if the
+  /// receiver has no associated transform stream.
   external RTCRtpTransform? get transform;
   external set transform(RTCRtpTransform? value);
 }

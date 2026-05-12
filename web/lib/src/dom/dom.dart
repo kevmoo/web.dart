@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -342,7 +343,7 @@ extension type CustomEvent._(JSObject _) implements Event, JSObject {
   /// Once dispatched, it doesn't do anything anymore.
   ///
   /// > **Note:** **Do not use this method anymore, as it is deprecated.**
-  /// &gt;
+  /// >
   /// > Rather than using the feature, instead use specific event constructors,
   /// > like [CustomEvent.CustomEvent].
   /// > The page on
@@ -405,7 +406,7 @@ extension type EventTarget._(JSObject _) implements JSObject {
   /// > [!NOTE]
   /// > The `addEventListener()` method is the _recommended_ way to register an
   /// > event listener. The benefits are as follows:
-  /// &gt;
+  /// >
   /// > - It allows adding more than one handler for an event. This is
   /// > particularly
   /// > useful for libraries, JavaScript modules, or any other kind of
@@ -428,11 +429,11 @@ extension type EventTarget._(JSObject _) implements JSObject {
   /// > identical anonymous function is given in an `addEventListener` call, the
   /// > second function will _also_ be added to the list of event listeners for
   /// > that target.
-  /// &gt;
+  /// >
   /// > Indeed, anonymous functions are not identical even if defined using
   /// > the _same_ unchanging source-code called repeatedly, **even if in a
   /// > loop**.
-  /// &gt;
+  /// >
   /// > Repeatedly defining the same unnamed function in such cases can be
   /// > problematic. (See [Memory issues](#memory_issues), below.)
   ///
@@ -984,12 +985,12 @@ extension type Node._(JSObject _) implements EventTarget, JSObject {
   ///
   /// > **Warning:** `cloneNode()` may lead to duplicate element IDs in a
   /// > document!
-  /// &gt;
+  /// >
   /// > If the original node has an `id` attribute, and the clone
   /// > will be placed in the same document, then you should modify the clone's
   /// > ID to be
   /// > unique.
-  /// &gt;
+  /// >
   /// > Also, `name` attributes may need to be modified,
   /// > depending on whether duplicate names are expected.
   ///
@@ -1113,7 +1114,7 @@ extension type Node._(JSObject _) implements EventTarget, JSObject {
   /// > As long as a reference is kept on the removed child,
   /// > it still exists in memory, but is no longer part of the DOM.
   /// > It can still be reused later in the code.
-  /// &gt;
+  /// >
   /// > If the return value of `removeChild()` is not stored, and no other
   /// > reference is kept,
   /// > it will be
@@ -1194,13 +1195,13 @@ extension type Node._(JSObject _) implements EventTarget, JSObject {
   /// > [!NOTE]
   /// > The [NodeList] being live means that its content is changed each time
   /// > new children are added or removed.
-  /// &gt;
+  /// >
   /// > Browsers insert text nodes into a document to represent whitespace in
   /// > the source markup.
   /// > Therefore a node obtained, for example, using `Node.childNodes[0]`
   /// > may refer to a whitespace text node rather than the actual element the
   /// > author intended to get.
-  /// &gt;
+  /// >
   /// > See
   /// > [Whitespace in the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace)
   /// > for more information.
@@ -1263,16 +1264,16 @@ extension type Node._(JSObject _) implements EventTarget, JSObject {
   /// > or `Node.previousSibling`
   /// > may refer to a whitespace text node rather than the actual element the
   /// > author intended to get.
-  /// &gt;
+  /// >
   /// > See
   /// > [Whitespace in the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace)
   /// > for more information.
-  /// &gt;
+  /// >
   /// > You can use
   /// > [`previousElementSibling`](https://developer.mozilla.org/en-US/docs/Web/API/Element/previousElementSibling)
   /// > to get the previous element node (skipping text nodes and any other
   /// > non-element nodes).
-  /// &gt;
+  /// >
   /// > To navigate the opposite way through the child nodes list use
   /// > [Node.nextSibling](https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling).
   external Node? get previousSibling;
@@ -1292,14 +1293,14 @@ extension type Node._(JSObject _) implements EventTarget, JSObject {
   /// > may refer to a whitespace text node rather than the actual element the
   /// > author
   /// > intended to get.
-  /// &gt;
+  /// >
   /// > The article
   /// > [Whitespace in the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Whitespace)
   /// > contains more information about this behavior.
-  /// &gt;
+  /// >
   /// > You can use [Element.nextElementSibling] to obtain the next element
   /// > skipping any whitespace nodes, other between-element text, or comments.
-  /// &gt;
+  /// >
   /// > To navigate the opposite way through the child nodes list use
   /// > [Node.previousSibling](https://developer.mozilla.org/en-US/docs/Web/API/Node/previousSibling).
   external Node? get nextSibling;
@@ -1614,11 +1615,11 @@ extension type Document._(JSObject _) implements Node, JSObject {
 
   /// > [!WARNING]
   /// > Use of the `document.write()` method is strongly discouraged.
-  /// &gt;
+  /// >
   /// > As
-  /// > [the HTML spec itself warns](&lt;https://html.spec.whatwg.org/multipage/dynamic-markup-insertion.html#document.write()&gt;):
-  /// &gt;
-  /// > &gt; This method has very idiosyncratic behavior. In some cases, this
+  /// > [the HTML spec itself warns](<https://html.spec.whatwg.org/multipage/dynamic-markup-insertion.html#document.write()>):
+  /// >
+  /// > > This method has very idiosyncratic behavior. In some cases, this
   /// > method can affect the state of the
   /// > [HTML parser](https://html.spec.whatwg.org/multipage/parsing.html#html-parser)
   /// > while the parser is running, resulting in a DOM that does not correspond
@@ -1633,7 +1634,7 @@ extension type Document._(JSObject _) implements Node, JSObject {
   /// > some cases be dependent on network latency, which can lead to failures
   /// > that are very hard to debug. For all these reasons, use of this method
   /// > is strongly discouraged.
-  /// > &gt; Therefore, avoid using `document.write()` — and if possible, update
+  /// > > Therefore, avoid using `document.write()` — and if possible, update
   /// > any existing code that is still using it.
   ///
   /// The **`document.write()`** method writes a string of text to a document
@@ -2335,10 +2336,10 @@ extension type Document._(JSObject _) implements Node, JSObject {
   /// focusable by default, unless the "Full Keyboard Access" setting is enabled
   /// in System Preferences.
   ///
-  /// Typically a user can press the &lt;kbd&gt;Tab&lt;/kbd&gt; key to move the
-  /// focus around the page among focusable elements, and use keyboard gestures
-  /// such as &lt;kbd&gt;Space&lt;/kbd&gt; or &lt;kbd&gt;Enter&lt;/kbd&gt; to
-  /// simulate clicks on the focused element.
+  /// Typically a user can press the <kbd>Tab</kbd> key to move the focus around
+  /// the page among focusable elements, and use keyboard gestures such as
+  /// <kbd>Space</kbd> or <kbd>Enter</kbd> to simulate clicks on the focused
+  /// element.
   ///
   /// > [!NOTE]
   /// > Focus (which element is receiving user input events) is not the same
@@ -4464,7 +4465,7 @@ extension type Attr._(JSObject _) implements Node, JSObject {
   /// > These are `xml` (for the `xml:lang` attribute), `xlink` (for the
   /// > `xlink:href`, `xlink:show`, `xlink:target` and `xlink:title` attributes)
   /// > and `xpath`.
-  /// &gt;
+  /// >
   /// > That means that the local name of an attribute of an HTML element is
   /// > always be equal to its qualified name: Colons are treated as regular
   /// > characters. In XML, like in SVG or MathML, the colon denotes the end of
@@ -5258,100 +5259,99 @@ extension type TreeWalker._(JSObject _) implements JSObject {
   /// Non-matching nodes are skipped, but their
   /// children may be included, if relevant. The possible values are:
   ///
-  /// &lt;table class="no-markdown"&gt;
-  /// &lt;thead&gt;
-  /// &lt;tr&gt;
-  /// &lt;th&gt;Constant&lt;/th&gt;
-  /// &lt;th&gt;Numerical value&lt;/th&gt;
-  /// &lt;th&gt;Description&lt;/th&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/thead&gt;
-  /// &lt;tbody&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_ALL&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;
-  /// &lt;code&gt;4294967295&lt;/code&gt; (that is the max value of
-  /// &lt;code&gt;unsigned long&lt;/code&gt;)
-  /// &lt;/td&gt;
-  /// &lt;td&gt;Shows all nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;
-  /// &lt;code&gt;NodeFilter.SHOW_ATTRIBUTE&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;
+  /// <table class="no-markdown">
+  ///   <thead>
+  ///     <tr>
+  ///       <th>Constant</th>
+  ///       <th>Numerical value</th>
+  ///       <th>Description</th>
+  ///     </tr>
+  ///   </thead>
+  ///   <tbody>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_ALL</code></td>
+  ///       <td>
+  ///         <code>4294967295</code> (that is the max value of <code>unsigned long</code>)
+  ///       </td>
+  ///       <td>Shows all nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>
+  ///         <code>NodeFilter.SHOW_ATTRIBUTE</code>
+  ///       </td>
+  ///       <td><code>2</code></td>
+  ///       <td>
   /// Shows attribute [Attr] nodes. This is meaningful
   /// only when creating a [TreeWalker] with an
   /// [Attr] node as its root; in this case, it means
   /// that the attribute node will appear in the first position of the
   /// iteration or traversal. Since attributes are never children of other
   /// nodes, they do not appear when traversing over the document tree.
-  /// &lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;
-  /// &lt;code&gt;NodeFilter.SHOW_CDATA_SECTION&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;8&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [CDATASection] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_COMMENT&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;128&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [Comment] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_DOCUMENT&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;256&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [Document] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_DOCUMENT_FRAGMENT&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1024&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [DocumentFragment] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_DOCUMENT_TYPE&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;512&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [DocumentType] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_ELEMENT&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;1&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [Element] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_ENTITY&lt;/code&gt; &lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;32&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Legacy, no more used.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;
-  /// &lt;code&gt;NodeFilter.SHOW_ENTITY_REFERENCE&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;16&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Legacy, no more used.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;
-  /// &lt;code&gt;NodeFilter.SHOW_NOTATION&lt;/code&gt;
-  /// &lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;2048&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Legacy, no more used.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_PROCESSING_INSTRUCTION&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;64&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [ProcessingInstruction] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;tr&gt;
-  /// &lt;td&gt;&lt;code&gt;NodeFilter.SHOW_TEXT&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;&lt;code&gt;4&lt;/code&gt;&lt;/td&gt;
-  /// &lt;td&gt;Shows [Text] nodes.&lt;/td&gt;
-  /// &lt;/tr&gt;
-  /// &lt;/tbody&gt;
-  /// &lt;/table&gt;
+  ///       </td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>
+  ///         <code>NodeFilter.SHOW_CDATA_SECTION</code>
+  ///       </td>
+  ///       <td><code>8</code></td>
+  ///       <td>Shows [CDATASection] nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_COMMENT</code></td>
+  ///       <td><code>128</code></td>
+  ///       <td>Shows [Comment] nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_DOCUMENT</code></td>
+  ///       <td><code>256</code></td>
+  ///       <td>Shows [Document] nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_DOCUMENT_FRAGMENT</code></td>
+  ///       <td><code>1024</code></td>
+  ///       <td>Shows [DocumentFragment] nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_DOCUMENT_TYPE</code></td>
+  ///       <td><code>512</code></td>
+  ///       <td>Shows [DocumentType] nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_ELEMENT</code></td>
+  ///       <td><code>1</code></td>
+  ///       <td>Shows [Element] nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_ENTITY</code> </td>
+  ///       <td><code>32</code></td>
+  ///       <td>Legacy, no more used.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>
+  ///         <code>NodeFilter.SHOW_ENTITY_REFERENCE</code>
+  ///       </td>
+  ///       <td><code>16</code></td>
+  ///       <td>Legacy, no more used.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td>
+  ///         <code>NodeFilter.SHOW_NOTATION</code>
+  ///       </td>
+  ///       <td><code>2048</code></td>
+  ///       <td>Legacy, no more used.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_PROCESSING_INSTRUCTION</code></td>
+  ///       <td><code>64</code></td>
+  ///       <td>Shows [ProcessingInstruction] nodes.</td>
+  ///     </tr>
+  ///     <tr>
+  ///       <td><code>NodeFilter.SHOW_TEXT</code></td>
+  ///       <td><code>4</code></td>
+  ///       <td>Shows [Text] nodes.</td>
+  ///     </tr>
+  ///   </tbody>
+  /// </table>
   external int get whatToShow;
 
   /// The **`TreeWalker.filter`** read-only property returns the `NodeFilter`

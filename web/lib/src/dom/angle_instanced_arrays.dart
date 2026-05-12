@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -33,7 +34,7 @@ import 'webgl1.dart';
 /// > [WebGL2RenderingContext], the functionality of this extension is available
 /// > on the WebGL2 context by default and the constants and methods are
 /// > available without the `ANGLE_` suffix.
-/// &gt;
+/// >
 /// > Despite the name "ANGLE", this extension works on any device if the
 /// > hardware supports it and not just on Windows when using the ANGLE library.
 /// > "ANGLE" just indicates that this extension has been written by the ANGLE

@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 @JS()
 library;
@@ -807,13 +808,13 @@ extension type IDBIndex._(JSObject _) implements JSObject {
 /// | Range                       | Code                                   |
 /// | --------------------------- | -------------------------------------- |
 /// | All keys ≥ **x**            | `IDBKeyRange.lowerBound(x)`            |
-/// | All keys &gt; **x**            | `IDBKeyRange.lowerBound(x, true)`      |
+/// | All keys > **x**            | `IDBKeyRange.lowerBound(x, true)`      |
 /// | All keys ≤ **y**            | `IDBKeyRange.upperBound(y)`            |
-/// | All keys &lt; **y**            | `IDBKeyRange.upperBound(y, true)`      |
+/// | All keys < **y**            | `IDBKeyRange.upperBound(y, true)`      |
 /// | All keys ≥ **x** && ≤ **y** | `IDBKeyRange.bound(x, y)`              |
-/// | All keys &gt; **x** &&&lt; **y**  | `IDBKeyRange.bound(x, y, true, true)`  |
-/// | All keys &gt; **x** && ≤ **y** | `IDBKeyRange.bound(x, y, true, false)` |
-/// | All keys ≥ **x** &&&lt; **y**  | `IDBKeyRange.bound(x, y, false, true)` |
+/// | All keys > **x** &&< **y**  | `IDBKeyRange.bound(x, y, true, true)`  |
+/// | All keys > **x** && ≤ **y** | `IDBKeyRange.bound(x, y, true, false)` |
+/// | All keys ≥ **x** &&< **y**  | `IDBKeyRange.bound(x, y, false, true)` |
 /// | The key = **z**             | `IDBKeyRange.only(z)`                  |
 ///
 /// A key is in a key range if the following conditions are true:

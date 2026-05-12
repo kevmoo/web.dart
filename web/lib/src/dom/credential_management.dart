@@ -9,6 +9,7 @@
 // Generated from Web IDL definitions.
 
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
+// ignore_for_file: unintended_html_in_doc_comment
 
 /// @docImport 'html.dart';
 @JS()
@@ -240,7 +241,7 @@ extension type FederatedCredentialRequestOptions._(JSObject _)
 /// > (FedCM)](https://developer.mozilla.org/en-US/docs/Web/API/FedCM_API)
 /// > supersedes the [FederatedCredential] interface in favor of the
 /// > [IdentityCredential] interface.
-/// &gt;
+/// >
 /// > The `FederatedCredentialInit` dictionary is not used when working with the
 /// > `IdentityCredential` interface.
 ///
