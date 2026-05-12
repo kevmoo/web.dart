@@ -8,6 +8,10 @@ Systematically process the massive changeset on the `vscode_2nd_try` branch usin
 - **Scope:** Primarily `js_interop_gen` (transformer refactoring, AST fixes, test updates) and verifying `web` generation.
 - **Tooling:** Git CLI, Dart MCP (for validation), and local test runners.
 
+## Critical Guardrails
+- **Don't throw away anything!** This is especially true for `.md` files. The agent is encouraged to create commits titled `DOC TO REVIEW: xyz` that contain only markdown files for process notes. This ensures humans can review them later without cluttering code commits.
+- **DO NOT REVERT GOOD WORK. ASK FOR HELP!** If solid, working progress is made but a roadblock is hit, do not start over or discard the work. Stop and ask the user for help!
+
 ## Implementation Steps
 
 ### Phase 1: Snapshot & Audit

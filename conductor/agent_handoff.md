@@ -9,6 +9,10 @@ Before you start any Git operations, please:
 2. Understand the strict **3-Step Validation Protocol** required for *every single commit*. This is the most critical part of your job.
 3. Ensure you are on the `vscode_2nd_try` branch.
 
+## Critical Rules
+1. **Don't throw away anything!** This is especially true for `.md` files. You are always welcome to create commits titled `DOC TO REVIEW: xyz` that contain only markdown files. Most commits in this series only touch markdown for process notes. We want to let a human review those later. Keeping them in their own commits is great.
+2. **DO NOT REVERT GOOD WORK. ASK FOR HELP!** If you have done solid work that seems reasonable and working and then hit a roadblock, don't try to start over or throw things away. Just stop and ask for help!
+
 ## Execution Directives
 1. **Safety First:** Begin by creating a backup branch (`git branch vscode_2nd_try_backup`). Do not push this backup unless instructed.
 2. **Audit:** Generate the audit log (`git log origin/HEAD..HEAD --oneline > conductor/audit.txt`) and analyze it to plan your squashes and edits.
