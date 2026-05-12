@@ -37,12 +37,13 @@ Every curated commit MUST pass this strict 3-step validation before being finali
 
 1. **Verify the Failure State (Before Changes):**
    - Stash or exclude the proposed fixes to `lib/` temporarily.
-   - Run the tests/generation.
+   - Run the tests/generation (ALL TESTS).
    - **Expected Result:** The generator should fail with a runtime error, OR the generated Dart output file should contain static analysis errors. This proves the issue exists.
 
 2. **Verify the Fix (Apply Changes):**
    - Apply the fixes to the generator source code (e.g., in `js_interop_gen/lib/`).
-   - Run the generator/tests.
+   - Format the code: Run `dart format .` to ensure no weird formatting artifacts are introduced.
+   - Run the generator/tests (ALL TESTS).
    - **Expected Result:** The output changes should be minimal and localized to the target test output file (with zero or no-op changes to other files). All static errors in the generated Dart code must be gone.
 
 3. **Verify pkg:web Integrity:**
@@ -53,4 +54,5 @@ Every curated commit MUST pass this strict 3-step validation before being finali
 At the end of the rebase process, and for every individual commit within the new history:
 - **Test Clean:** 100% of the tests in the repository must pass.
 - **Analyzer Clean:** EVERY FILE in the repository must pass static analysis with zero errors or warnings (`dart analyze .`).
+- **Format Clean:** All code must be formatted correctly (`dart format .`).
 - **Rollback:** Because we created `vscode_2nd_try_backup`, we can abort the rebase at any point if the history gets tangled.
