@@ -1,0 +1,109 @@
+pick 93367dd # fix: resolve namespace flattening type resolution mismatch in js_interop_gen
+pick 406b68a # doc: include vscode_interop_analysis.md document
+pick 093e276 # fix(js_interop_gen): traverse generic type arguments in ReferredType dependency resolver
+pick 68d34a6 # refactor(js_interop_gen): eliminate GlobalOptions mutable state in favor of options propagation
+pick d62304a # refactor(js_interop_gen): decompose transformer.dart by extracting DependencyWalker
+pick 5f84067 # refactor(js_interop_gen): decompose transformer.dart by extracting NamespaceFlattener
+pick 04382ca # REVERT: architecture notes!
+pick a7c0580 # fix(js_interop_gen): prevent self-import and prefixing when importUrl matches file
+pick d404782 # fix(js_interop_gen): deduplicate collected generic parameters by name in unions
+pick e45ab24 # fix(js_interop_gen): distinguish generic builtins by type arguments and cast distinct union array getters
+pick 78ead76 # fix(js_interop_gen): map void generic type arguments to JSAny to conform to JSAny? bounds
+pick 6a6bcaf # REVERT: final notes!
+pick ac8fb3a # js_interop_gen: support the latest pkg:analyzer
+pick ef71179 # oops
+pick 4d3646f # feat(js_interop_gen): support string-literal module declarations
+pick 9d831f9 # feat(js_interop_gen): prevent infinite recursion crashes on mutually recursive types
+pick 7c2cf6a # feat(js_interop_gen): support generic type parameter resolution inside module namespaces
+pick e559f8d # feat(js_interop_gen): implement idempotent rescoping and duplicate member signature deduplication
+pick dff0002 # feat(js_interop_gen): resolve enum member type references to parent EnumDeclaration
+pick a2eea89 # feat(js_interop_gen): add formatter try-catch recovery and document next steps
+pick 221d9a5 # deleting dead markdown bits
+pick bdc3516 # feat(js_interop_gen): resolve literal union casts and refactor AST Node type safety
+pick 7867692 # chore: move type resolver into its own file
+pick 628e3cb # REVERT ME: next steps!
+pick a037ee2 # feat: cache transformed AST nodes to resolve mismatched unique-suffix references
+pick 835ed39 # test: update expected baselines with optimized formatting and caching behavior
+pick cbdce49 # fix: deduplicate types in union/intersection declarations to resolve duplicate definition errors
+pick 7776979 # fix: resolve unchecked use of nullable value errors for JSAny and void in union getters
+pick c1df4ae # docs: add Developer Cycle iteration workflow to status and master plan
+pick 4f7538e # fix: uniquely identify generic type references in dependency walking to prevent missing generic unions
+pick fe26efa # fix: pad generic type arguments in ReferredType emit to match declaration bounds count
+pick f1daa0d # docs: add periodic rebuild verification step to Developer Cycle
+pick d9265a7 # docs: mark non_type_as_type_argument as ✅ (Fixed)
+pick 2e851b0 # fix: prevent parent nullability leaking into generic type arguments during referred type emit
+pick be28a20 # docs: mark type_argument_not_matching_bounds as ✅ (Fixed)
+pick 9035967 # fix: always emit Deprecated annotation with a default message argument
+pick 975a306 # docs: mark no_annotation_constructor_arguments as ✅ (Fixed)
+pick 5a4131d # fix: dynamically resolve and enforce non-JSObject representation types for interfaces
+pick 2de63e1 # docs: mark extension_type_implements_representation_not_supertype as ✅ (Fixed)
+pick af57f62 # docs: update Step 4 of Developer Cycle to include analyzer clean verification
+pick 9d312cf # docs: update Developer Cycle to enforce full compiler library static analysis
+pick c6e7c88 # fix: resolve all static analysis lints and line-length limits in lib/
+pick 7adda06 # fix: automatically detect and redeclare conflicting inherited members inside intersection types
+pick 0880c3c # docs: mark extension_type_inherited_member_conflict as ✅ (Fixed)
+pick 5ffcc71 # fix: cast generic ReferredTypes using intermediate JSAny cast in union getters
+pick fefdc68 # docs: mark return_of_invalid_type as ✅ (Fixed)
+pick 7f8e6e1 # test: replace global Object inheritance with custom Parent interface in representation type test to avoid TS warning
+pick 60e4330 # fix: support object literal types in intersection member conflict resolution
+pick 510f86e # docs: update compliance master plan roadmap with reevaluated strict hurdles
+pick 21495fd # fix: recursively unwrap and walk inside type parameters of BuiltinTypes inside DependencyWalker
+pick 7bbd108 # docs: mark generic parameter blindspot as ✅ (Fixed)
+pick 738727d # fix: pass typeArg: true when resolving type parameters of referred BuiltinTypes and PackageWebTypes
+pick 7e646c9 # docs: mark type_argument_not_matching_bounds as ✅ (Fixed)
+pick 5c8fa5d # fix: propagate typeArg and parameter flags recursively inside UnionType and IntersectionType transformations
+pick 7ba827e # fix: dynamically propagate and resolve specific type parameter bounds constraints inside ReferredType and getGenericTypes
+pick fcb6712 # feat: add lines_longer_than_80_chars ignore rule to all generated interop files
+pick 9896fd9 # fix: escape HTML-like tags inside doc comments to prevent unintended_html_in_doc_comment lint
+pick f295b5d # fix: escape JS properties/methods starting with _ to public Dart names starting with $
+pick 0075369 # test: add and update expected integration goldens with custom generator formatting
+pick f29ba17 # test: add generic Thenable class definition in vscode_input.dart to satisfy type bounds checks
+pick 55078e7 # test: declare Thenable as a valid JS interop extension type in vscode_input.dart
+pick 0f2a4ee # test: stage and commit the full-scale VS Code interop integration test suite
+pick 3cbedaa # documenting struggles
+pick 09999d7 # OMG we did it!
+pick 51ab29b # end-to-end plan!
+pick e2c2a8c # paran silly
+pick 8587af6 # first e2e pass
+pick ddd957a # First e2e pass!
+pick b063ce0 # making no promises about the content of dartdoc - YET!
+pick 1d8c619 # Eat our own dogfood!
+pick 44a363b # Aligning the names!
+pick 3c13577 # more cleanup
+pick 18f2fb8 # feat: Fix nested typealias, keyof, and property access resolution in d.ts generator
+pick 70f1fb8 # refactor: Extract identifier sanitization to _sanitizeIdentifier helper & add targeted unit and integration tests
+pick 1c2ef3a # KEEP BUT DON'T PUSH: agent hand off!
+pick 98a3f06 # good to keep!
+pick 9038646 # fix formatting!
+pick cd978e8 # DOC TO REVIEW: Update plan with formatting and no-revert requirements
+
+# Rebase 5d4fd3c..cd978e8 onto 5d4fd3c (78 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#

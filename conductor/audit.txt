@@ -1,0 +1,78 @@
+cd978e8 DOC TO REVIEW: Update plan with formatting and no-revert requirements
+9038646 fix formatting!
+98a3f06 good to keep!
+1c2ef3a KEEP BUT DON'T PUSH: agent hand off!
+70f1fb8 refactor: Extract identifier sanitization to _sanitizeIdentifier helper & add targeted unit and integration tests
+18f2fb8 feat: Fix nested typealias, keyof, and property access resolution in d.ts generator
+3c13577 more cleanup
+44a363b Aligning the names!
+1d8c619 Eat our own dogfood!
+b063ce0 making no promises about the content of dartdoc - YET!
+ddd957a First e2e pass!
+8587af6 first e2e pass
+e2c2a8c paran silly
+51ab29b end-to-end plan!
+09999d7 OMG we did it!
+3cbedaa documenting struggles
+0f2a4ee test: stage and commit the full-scale VS Code interop integration test suite
+55078e7 test: declare Thenable as a valid JS interop extension type in vscode_input.dart
+f29ba17 test: add generic Thenable class definition in vscode_input.dart to satisfy type bounds checks
+0075369 test: add and update expected integration goldens with custom generator formatting
+f295b5d fix: escape JS properties/methods starting with _ to public Dart names starting with $
+9896fd9 fix: escape HTML-like tags inside doc comments to prevent unintended_html_in_doc_comment lint
+fcb6712 feat: add lines_longer_than_80_chars ignore rule to all generated interop files
+7ba827e fix: dynamically propagate and resolve specific type parameter bounds constraints inside ReferredType and getGenericTypes
+5c8fa5d fix: propagate typeArg and parameter flags recursively inside UnionType and IntersectionType transformations
+7e646c9 docs: mark type_argument_not_matching_bounds as ✅ (Fixed)
+738727d fix: pass typeArg: true when resolving type parameters of referred BuiltinTypes and PackageWebTypes
+7bbd108 docs: mark generic parameter blindspot as ✅ (Fixed)
+21495fd fix: recursively unwrap and walk inside type parameters of BuiltinTypes inside DependencyWalker
+510f86e docs: update compliance master plan roadmap with reevaluated strict hurdles
+60e4330 fix: support object literal types in intersection member conflict resolution
+7f8e6e1 test: replace global Object inheritance with custom Parent interface in representation type test to avoid TS warning
+fefdc68 docs: mark return_of_invalid_type as ✅ (Fixed)
+5ffcc71 fix: cast generic ReferredTypes using intermediate JSAny cast in union getters
+0880c3c docs: mark extension_type_inherited_member_conflict as ✅ (Fixed)
+7adda06 fix: automatically detect and redeclare conflicting inherited members inside intersection types
+c6e7c88 fix: resolve all static analysis lints and line-length limits in lib/
+9d312cf docs: update Developer Cycle to enforce full compiler library static analysis
+af57f62 docs: update Step 4 of Developer Cycle to include analyzer clean verification
+2de63e1 docs: mark extension_type_implements_representation_not_supertype as ✅ (Fixed)
+5a4131d fix: dynamically resolve and enforce non-JSObject representation types for interfaces
+975a306 docs: mark no_annotation_constructor_arguments as ✅ (Fixed)
+9035967 fix: always emit Deprecated annotation with a default message argument
+be28a20 docs: mark type_argument_not_matching_bounds as ✅ (Fixed)
+2e851b0 fix: prevent parent nullability leaking into generic type arguments during referred type emit
+d9265a7 docs: mark non_type_as_type_argument as ✅ (Fixed)
+f1daa0d docs: add periodic rebuild verification step to Developer Cycle
+fe26efa fix: pad generic type arguments in ReferredType emit to match declaration bounds count
+4f7538e fix: uniquely identify generic type references in dependency walking to prevent missing generic unions
+c1df4ae docs: add Developer Cycle iteration workflow to status and master plan
+7776979 fix: resolve unchecked use of nullable value errors for JSAny and void in union getters
+cbdce49 fix: deduplicate types in union/intersection declarations to resolve duplicate definition errors
+835ed39 test: update expected baselines with optimized formatting and caching behavior
+a037ee2 feat: cache transformed AST nodes to resolve mismatched unique-suffix references
+628e3cb REVERT ME: next steps!
+7867692 chore: move type resolver into its own file
+bdc3516 feat(js_interop_gen): resolve literal union casts and refactor AST Node type safety
+221d9a5 deleting dead markdown bits
+a2eea89 feat(js_interop_gen): add formatter try-catch recovery and document next steps
+dff0002 feat(js_interop_gen): resolve enum member type references to parent EnumDeclaration
+e559f8d feat(js_interop_gen): implement idempotent rescoping and duplicate member signature deduplication
+7c2cf6a feat(js_interop_gen): support generic type parameter resolution inside module namespaces
+9d831f9 feat(js_interop_gen): prevent infinite recursion crashes on mutually recursive types
+4d3646f feat(js_interop_gen): support string-literal module declarations
+ef71179 oops
+ac8fb3a js_interop_gen: support the latest pkg:analyzer
+6a6bcaf REVERT: final notes!
+78ead76 fix(js_interop_gen): map void generic type arguments to JSAny to conform to JSAny? bounds
+e45ab24 fix(js_interop_gen): distinguish generic builtins by type arguments and cast distinct union array getters
+d404782 fix(js_interop_gen): deduplicate collected generic parameters by name in unions
+a7c0580 fix(js_interop_gen): prevent self-import and prefixing when importUrl matches file
+04382ca REVERT: architecture notes!
+5f84067 refactor(js_interop_gen): decompose transformer.dart by extracting NamespaceFlattener
+d62304a refactor(js_interop_gen): decompose transformer.dart by extracting DependencyWalker
+68d34a6 refactor(js_interop_gen): eliminate GlobalOptions mutable state in favor of options propagation
+093e276 fix(js_interop_gen): traverse generic type arguments in ReferredType dependency resolver
+406b68a doc: include vscode_interop_analysis.md document
+93367dd fix: resolve namespace flattening type resolution mismatch in js_interop_gen
