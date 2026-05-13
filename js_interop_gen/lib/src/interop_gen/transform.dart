@@ -244,8 +244,8 @@ class ProgramMap {
             // find the source file decl
             if (src == null) return null;
 
-            final symbol = typeChecker.getSymbolAtLocation(src)!;
-            final exports = symbol.exports?.toDart ?? {};
+            final symbol = typeChecker.getSymbolAtLocation(src);
+            final exports = symbol?.exports?.toDart ?? {};
 
             final targetSymbol = exports[d.toJS];
 
@@ -263,7 +263,10 @@ class ProgramMap {
           }
         }
 
-        nodeMap = transformer.processAndReturn();
+        final alreadyActive = _activeTransformers.containsKey(file);
+        nodeMap = alreadyActive
+            ? transformer.nodeMap
+            : transformer.processAndReturn();
         _activeTransformers[file] = transformer;
       }
     }

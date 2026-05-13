@@ -84,6 +84,7 @@ extension type Core_Internal._(_i1.JSObject _) implements _i1.JSObject {
   @_i1.JS()
   external static bool get devMode;
 }
+typedef Core_Internal_Mode = Mode;
 extension type const Mode._(String _) {
   static const Mode debug = Mode._('debug');
 

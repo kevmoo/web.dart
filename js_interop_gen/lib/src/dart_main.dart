@@ -107,6 +107,7 @@ Future<void> generateJSInteropBindings(Config config) async {
 
   // write code to file
   if (dartDeclarations.multiFileOutput) {
+    ensureDirectoryExists(configOutput);
     for (final entry in generatedCodeMap.entries) {
       fs.writeFileSync(
         p.join(configOutput, p.basename(entry.key)).toJS,

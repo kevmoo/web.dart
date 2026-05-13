@@ -587,7 +587,7 @@ class TypeAliasDeclaration extends NestableDeclaration
   bool exported;
 
   @override
-  ID get id => ID(type: 'typealias', name: name);
+  ID get id => ID(type: 'typealias', name: qualifiedName);
 
   @override
   Documentation? documentation;
@@ -604,7 +604,7 @@ class TypeAliasDeclaration extends NestableDeclaration
   @override
   Spec emit([DeclarationOptions? options]) {
     final t = type;
-    if (t is DeclarationType && t.declarationName == name) {
+    if (t is DeclarationType && t.declarationName == completedDartName) {
       return const Code('');
     }
     options ??= DeclarationOptions();

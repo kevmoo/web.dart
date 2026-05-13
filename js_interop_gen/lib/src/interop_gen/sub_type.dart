@@ -386,7 +386,7 @@ Type getLowestCommonAncestorOfTypes(
 }) {
   typeMap ??= createTypeMap(types);
 
-  if (types.isEmpty) throw Exception('You must pass types');
+  if (types.isEmpty) return BuiltinType.primitiveType(PrimitiveType.never);
   if (types.singleOrNull case final singleType?) {
     return singleType..isNullable = isNullable;
   }

@@ -128,19 +128,19 @@ class TypeResolver {
 
         // TODO: multi-decls
         final List<Declaration> transformedDecls;
-        final cached = transformer.transformedCache[declaration];
+        final cached = transformer.transformedCache[d];
         if (cached != null) {
           transformedDecls = cached;
         } else {
           transformedDecls = transformer.transformAndReturn(
-            declaration,
+            d,
             namer: namer,
             parent: parent,
           );
         }
 
         if (parent != null) {
-          switch (declaration.kind) {
+          switch (d.kind) {
             case TSSyntaxKind.ClassDeclaration ||
                 TSSyntaxKind.InterfaceDeclaration:
               final outputDecl = transformedDecls.first as TypeDeclaration;
@@ -150,15 +150,19 @@ class TypeResolver {
               final outputDecl = transformedDecls.first as EnumDeclaration;
               outputDecl.parent = parent;
               parent.nestableDeclarations.add(outputDecl);
+            case TSSyntaxKind.TypeAliasDeclaration:
+              final outputDecl = transformedDecls.first as TypeAliasDeclaration;
+              outputDecl.parent = parent;
+              parent.nestableDeclarations.add(outputDecl);
             default:
               parent.topLevelDeclarations.addAll(transformedDecls);
           }
-          parent.nodes.add(declaration);
+          parent.nodes.add(d);
         } else {
           transformer.nodeMap.addAll({
             for (final decl in transformedDecls) decl.id.toString(): decl,
           });
-          transformer.nodes.add(declaration);
+          transformer.nodes.add(d);
         }
       }
 
@@ -377,7 +381,31 @@ class TypeResolver {
       tsFullyQualifiedName,
     );
 
-    if (type?.isTypeParameter() ?? false) {
+    final name = fullyQualifiedName.last.part;
+    final isWebStream =
+        name.startsWith('ReadableStream') ||
+        name.startsWith('WritableStream') ||
+        name.startsWith('TransformStream') ||
+        name == 'ByteLengthQueuingStrategy' ||
+        name == 'CountQueuingStrategy';
+
+    if ((isWebStream ||
+            (nameImport != null && nameImport.contains('stream/web'))) &&
+        !isNotTypableDeclaration) {
+      return PackageWebType.parse(
+        name,
+        typeParams: (typeArguments ?? [])
+            .map((t) => transformer.transformType(t, typeArg: true))
+            .map(getJSTypeAlternative)
+            .toList(),
+        isNullable: isNullable,
+        renameMap: Translator.instance?.loadedRenameMap ?? const {},
+      );
+    }
+
+    final isTypeParam =
+        declarations.firstOrNull?.kind == TSSyntaxKind.TypeParameter;
+    if (isTypeParam || (type?.isTypeParameter() ?? false)) {
       // generic type
       return GenericType(
         name: fullyQualifiedName.last.part,

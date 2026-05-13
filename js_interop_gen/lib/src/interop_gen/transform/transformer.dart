@@ -1520,6 +1520,13 @@ class Transformer {
             )
             .toList();
 
+        if (types.isEmpty) {
+          return BuiltinType.primitiveType(
+            PrimitiveType.never,
+            isNullable: shouldBeNullable || (isNullable ?? false),
+          );
+        }
+
         var isHomogenous = true;
         final nonNullLiteralTypes = <LiteralType>[];
         var onlyContainsBooleanTypes = true;
@@ -1815,6 +1822,12 @@ class Transformer {
         );
 
         if (returnTypeOrNull != null) return returnTypeOrNull;
+        if (keys.isEmpty) {
+          return BuiltinType.primitiveType(
+            PrimitiveType.never,
+            isNullable: isNullable,
+          );
+        }
 
         final typeName = transformedType is NamedType
             ? (transformedType.dartName ?? transformedType.name)
@@ -2038,10 +2051,15 @@ class Transformer {
 
       return getTypeFromDeclaration;
     } else if (type.expression.kind == TSSyntaxKind.PropertyAccessExpression) {
-      // TODO(nikeokoronkwo): Support Globbed Imports and Exports, https://github.com/dart-lang/web/issues/420
-      throw UnimplementedError(
-        "The given type expression's expression of kind "
-        '${type.expression.kind} is not supported yet',
+      final symbol = typeChecker.getSymbolAtLocation(type.expression);
+      final tsType = typeChecker.getTypeFromTypeNode(type);
+      return typeResolver.getTypeFromSymbol(
+        symbol,
+        tsType,
+        type.typeArguments?.toDart,
+        false,
+        false,
+        false,
       );
     } else {
       throw UnimplementedError(
@@ -2280,8 +2298,11 @@ class Transformer {
       // get decls with `export` keyword
       switch (node) {
         case final ExportableDeclaration e:
+          final isMainInput = programMap.files.contains(file);
+
           if ((e.exported || generateAll) &&
-              (filterDeclSet.isEmpty ||
+              (!isMainInput ||
+                  filterDeclSet.isEmpty ||
                   filterDeclSetPatterns.any(
                     (pattern) => pattern.hasMatch(e.name),
                   ))) {
