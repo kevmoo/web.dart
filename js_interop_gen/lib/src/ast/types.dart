@@ -179,7 +179,8 @@ class UnionType extends DeclarationType {
   }) : declarationName = name;
 
   @override
-  ID get id => ID(type: 'type', name: types.map((t) => t.id.name).join('|'));
+  ID get id =>
+      ID(type: 'type-def', name: types.map((t) => t.id.name).join('|'));
 
   @override
   Declaration get declaration => _UnionDeclaration(
@@ -219,7 +220,8 @@ class IntersectionType extends DeclarationType {
     : declarationName = name;
 
   @override
-  ID get id => ID(type: 'type', name: types.map((t) => t.id.name).join('&'));
+  ID get id =>
+      ID(type: 'type-def', name: types.map((t) => t.id.name).join('&'));
 
   @override
   Declaration get declaration =>
@@ -478,7 +480,7 @@ class EnumObjectType extends DeclarationType {
     : _dartName = dartName ?? enumeration.dartName;
 
   @override
-  ID get id => ID(type: 'type', name: 'TypeOf_${enumeration.name}');
+  ID get id => ID(type: 'type-def', name: 'TypeOf_${enumeration.name}');
 
   @override
   Declaration get declaration => _EnumObjDeclaration(

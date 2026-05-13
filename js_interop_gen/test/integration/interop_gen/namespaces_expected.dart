@@ -84,17 +84,12 @@ extension type Core_Internal._(_i1.JSObject _) implements _i1.JSObject {
   @_i1.JS()
   external static bool get devMode;
 }
-typedef Core_Internal_Mode = AnonymousUnion_3129258;
-extension type const AnonymousUnion_3129258._(String _) {
-  static const AnonymousUnion_3129258 debug = AnonymousUnion_3129258._('debug');
+extension type const Mode._(String _) {
+  static const Mode debug = Mode._('debug');
 
-  static const AnonymousUnion_3129258 profile = AnonymousUnion_3129258._(
-    'profile',
-  );
+  static const Mode profile = Mode._('profile');
 
-  static const AnonymousUnion_3129258 release = AnonymousUnion_3129258._(
-    'release',
-  );
+  static const Mode release = Mode._('release');
 }
 @_i1.JS('Security.IAuthToken')
 extension type Security_IAuthToken._(_i1.JSObject _) implements _i1.JSObject {

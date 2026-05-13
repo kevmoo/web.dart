@@ -5,7 +5,6 @@
 import 'dart:collection';
 
 import 'package:code_builder/code_builder.dart';
-import 'package:collection/collection.dart';
 
 import '../interop_gen/namer.dart';
 import '../js/typescript.types.dart';
@@ -593,7 +592,11 @@ class TypeAliasDeclaration extends NestableDeclaration
   }) : dartName = null;
 
   @override
-  TypeDef emit([DeclarationOptions? options]) {
+  Spec emit([DeclarationOptions? options]) {
+    final t = type;
+    if (t is DeclarationType && t.declarationName == name) {
+      return const Code('');
+    }
     options ??= DeclarationOptions();
     final (doc, annotations) = generateFromDocumentation(documentation);
 
@@ -1402,9 +1405,9 @@ Method? _extractConstrFromClass(
     typeParameters: typeParams,
     abstract: abstract,
   ) = classDecl;
-  var constr = constructors.firstWhereOrNull(
-    (c) => c.name == null || c.name == 'unnamed',
-  );
+  var constr = constructors
+      .where((c) => c.name == null || c.name == 'unnamed')
+      .firstOrNull;
 
   if (constructors.isEmpty && !abstract) {
     constr = ConstructorDeclaration.defaultFor(classDecl);
