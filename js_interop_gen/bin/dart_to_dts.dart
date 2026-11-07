@@ -167,13 +167,13 @@ final _parser = ArgParser()
   ..addOption(
     'emit-ir',
     valueHelp: 'file.interop.json',
-    help: 'Optional path to write the Stage 1 JSON IR sidecar.',
+    help: 'Optional path to write the Step 1 JSON IR sidecar.',
   )
   ..addOption(
     'from-ir',
     valueHelp: 'file.interop.json',
     help:
-        'Skip Stage 1 (package:analyzer) and generate .d.ts purely from an '
+        'Skip Step 1 (package:analyzer) and generate .d.ts purely from an '
         'existing .interop.json file.',
   )
   ..addFlag(
